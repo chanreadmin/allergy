@@ -506,6 +506,30 @@
                     </div>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarPages2" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarPages">
+                        <i class="ri-pages-line"></i> <span data-key="t-pages">Patient</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarPages2">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="add-patient.php" class="nav-link" data-key="t-starter"> Add Patient </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="view-patient.php" class="nav-link" data-key="t-team"> View Patient</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="manage-patients.php" class="nav-link" data-key="t-team"> Manage Patient</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="hospital-docs.php" class="nav-link" data-key="t-faqs"> Documentation </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
 
 
 

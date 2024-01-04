@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2024 at 12:57 PM
+-- Generation Time: Jan 04, 2024 at 12:48 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,6 +20,35 @@ SET time_zone = "+00:00";
 --
 -- Database: `allergy`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `patients`
+--
+
+CREATE TABLE `patients` (
+  `id` int(11) NOT NULL,
+  `patient_name` varchar(255) NOT NULL,
+  `patient_id` varchar(50) DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
+  `sex` char(1) DEFAULT NULL,
+  `physician` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `mobile` varchar(15) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `updatedBy` varchar(255) DEFAULT NULL,
+  `centerName` varchar(255) DEFAULT NULL,
+  `centerCode` varchar(10) DEFAULT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `patients`
+--
+
+INSERT INTO `patients` (`id`, `patient_name`, `patient_id`, `age`, `sex`, `physician`, `address`, `mobile`, `email`, `updatedBy`, `centerName`, `centerCode`, `createdAt`) VALUES
+(1, 'Shamim', '12345', 23, 'M', 'none', 'rajajinagar', '9856876212', 'webdesigner@chanrejournals.com', 'Shamim', '', '1001', '2024-01-04 09:58:59');
 
 -- --------------------------------------------------------
 
@@ -85,6 +114,118 @@ INSERT INTO `tbl_center` (`id`, `centerName`, `centerCode`, `createdAt`, `center
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_history`
+--
+
+CREATE TABLE `tbl_history` (
+  `id` int(11) NOT NULL,
+  `patient_id` int(11) DEFAULT NULL,
+  `patient_name` varchar(255) DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
+  `sex` varchar(10) DEFAULT NULL,
+  `physician` text DEFAULT NULL,
+  `address` text DEFAULT NULL,
+  `mobile` varchar(20) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `hayfever` varchar(3) DEFAULT NULL,
+  `asthma` varchar(3) DEFAULT NULL,
+  `breath` varchar(3) DEFAULT NULL,
+  `hives` varchar(3) DEFAULT NULL,
+  `sinus` varchar(3) DEFAULT NULL,
+  `eczema_oak` varchar(3) DEFAULT NULL,
+  `foodallergy` varchar(3) DEFAULT NULL,
+  `arthritisdiseases` varchar(3) DEFAULT NULL,
+  `immune` varchar(3) DEFAULT NULL,
+  `drugallergy` varchar(3) DEFAULT NULL,
+  `beesting` varchar(3) DEFAULT NULL,
+  `fevergrade` text DEFAULT NULL,
+  `itchingsore` varchar(3) DEFAULT NULL,
+  `cycleoffever` text DEFAULT NULL,
+  `exacerbations` text DEFAULT NULL,
+  `admhospital` varchar(3) DEFAULT NULL,
+  `admhospital_yes` text DEFAULT NULL,
+  `gp` varchar(3) DEFAULT NULL,
+  `gp_yes` text DEFAULT NULL,
+  `ae` varchar(3) DEFAULT NULL,
+  `ae_yes` text DEFAULT NULL,
+  `itu` varchar(3) DEFAULT NULL,
+  `itu_yes` text DEFAULT NULL,
+  `coughwhz` varchar(3) DEFAULT NULL,
+  `coughwhz_yes` text DEFAULT NULL,
+  `intervals` varchar(3) DEFAULT NULL,
+  `intervals_yes` text DEFAULT NULL,
+  `cough_night` varchar(3) DEFAULT NULL,
+  `cough_night_yes` text DEFAULT NULL,
+  `morningCough` varchar(3) DEFAULT NULL,
+  `morningCough_yes` text DEFAULT NULL,
+  `exercise_symptom` varchar(3) DEFAULT NULL,
+  `exercise_yes` text DEFAULT NULL,
+  `smoke` varchar(3) DEFAULT NULL,
+  `smoke_yes` text DEFAULT NULL,
+  `pets` varchar(3) DEFAULT NULL,
+  `pets_yes` text DEFAULT NULL,
+  `triggers` text DEFAULT NULL,
+  `triggers_other` text DEFAULT NULL,
+  `Sneezing` varchar(3) DEFAULT NULL,
+  `nasal` varchar(3) DEFAULT NULL,
+  `runningnose` varchar(3) DEFAULT NULL,
+  `itching` varchar(3) DEFAULT NULL,
+  `itchingeyes` varchar(3) DEFAULT NULL,
+  `coughing1` varchar(3) DEFAULT NULL,
+  `Wheezing` varchar(3) DEFAULT NULL,
+  `coughingorwheezing` varchar(3) DEFAULT NULL,
+  `withexcercise` varchar(3) DEFAULT NULL,
+  `headaches` varchar(3) DEFAULT NULL,
+  `nasaldrop` varchar(3) DEFAULT NULL,
+  `heaves` varchar(3) DEFAULT NULL,
+  `hd` text DEFAULT NULL,
+  `eczema` varchar(3) DEFAULT NULL,
+  `eczemad` text DEFAULT NULL,
+  `ulcer` varchar(3) DEFAULT NULL,
+  `ulcerd` text DEFAULT NULL,
+  `papaulo` varchar(3) DEFAULT NULL,
+  `papaulod` text DEFAULT NULL,
+  `norashes` varchar(3) DEFAULT NULL,
+  `norashesd` text DEFAULT NULL,
+  `hypertension` varchar(3) DEFAULT NULL,
+  `diabetes` varchar(3) DEFAULT NULL,
+  `epilepsy` varchar(3) DEFAULT NULL,
+  `ihd` varchar(3) DEFAULT NULL,
+  `dak` varchar(3) DEFAULT NULL,
+  `pro` varchar(3) DEFAULT NULL,
+  `def` varchar(3) DEFAULT NULL,
+  `occupation` text DEFAULT NULL,
+  `pce` text DEFAULT NULL,
+  `location` text DEFAULT NULL,
+  `fhistory` text DEFAULT NULL,
+  `ocavity` text DEFAULT NULL,
+  `skin` text DEFAULT NULL,
+  `ent` text DEFAULT NULL,
+  `eye` text DEFAULT NULL,
+  `rs` text DEFAULT NULL,
+  `cvs` text DEFAULT NULL,
+  `cns` text DEFAULT NULL,
+  `abdomen` text DEFAULT NULL,
+  `anyother` text DEFAULT NULL,
+  `sctest` text DEFAULT NULL,
+  `apanel` text DEFAULT NULL,
+  `pdfreport` text DEFAULT NULL,
+  `centerCode` text DEFAULT NULL,
+  `centerName` text DEFAULT NULL,
+  `updatedBy` text DEFAULT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_history`
+--
+
+INSERT INTO `tbl_history` (`id`, `patient_id`, `patient_name`, `age`, `sex`, `physician`, `address`, `mobile`, `email`, `hayfever`, `asthma`, `breath`, `hives`, `sinus`, `eczema_oak`, `foodallergy`, `arthritisdiseases`, `immune`, `drugallergy`, `beesting`, `fevergrade`, `itchingsore`, `cycleoffever`, `exacerbations`, `admhospital`, `admhospital_yes`, `gp`, `gp_yes`, `ae`, `ae_yes`, `itu`, `itu_yes`, `coughwhz`, `coughwhz_yes`, `intervals`, `intervals_yes`, `cough_night`, `cough_night_yes`, `morningCough`, `morningCough_yes`, `exercise_symptom`, `exercise_yes`, `smoke`, `smoke_yes`, `pets`, `pets_yes`, `triggers`, `triggers_other`, `Sneezing`, `nasal`, `runningnose`, `itching`, `itchingeyes`, `coughing1`, `Wheezing`, `coughingorwheezing`, `withexcercise`, `headaches`, `nasaldrop`, `heaves`, `hd`, `eczema`, `eczemad`, `ulcer`, `ulcerd`, `papaulo`, `papaulod`, `norashes`, `norashesd`, `hypertension`, `diabetes`, `epilepsy`, `ihd`, `dak`, `pro`, `def`, `occupation`, `pce`, `location`, `fhistory`, `ocavity`, `skin`, `ent`, `eye`, `rs`, `cvs`, `cns`, `abdomen`, `anyother`, `sctest`, `apanel`, `pdfreport`, `centerCode`, `centerName`, `updatedBy`, `createdAt`) VALUES
+(1, 12345, 'Rohit', 25, 'Male', 'Dr Smitha', 'Rajajinagar, Bangalore', '9856876212', 'webdesigner@chanrejournals.com', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Mild', 'Yes', 'test', 'q', 'Yes', 'This is just a test', 'Yes', 'This is just a test', 'Yes', 'This is just a test', 'Yes', 'This is just a test', 'Yes', 'This is just a test', 'Yes', 'This is just a test', 'Yes', 'This is just a test', 'Yes', 'This is just a test', 'Yes', 'This is just a test', 'Yes', 'This is just a test', 'Yes', 'This is just a test', 'URTIs', '', 'Mil', 'Mil', 'Mil', 'Mil', 'Mil', 'Mil', 'Mil', 'Mil', 'Mil', 'Mil', 'Mil', 'No', 'Face', 'No', 'Left Hand', 'No', 'Left Legs', 'No', 'Face', 'No', 'Right Legs', 'No', 'Yes', 'No', 'No', 'w', 'e', 'e', 'e', 'e', 'Urban', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'cbc', 'e', '305e0035d68bde381b8418ac6340485e.pdf', '1001', '', 'Shamim', '2024-01-04 08:17:11');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_patient`
 --
 
@@ -101,109 +242,15 @@ CREATE TABLE `tbl_patient` (
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_patients`
---
-
-CREATE TABLE `tbl_patients` (
-  `id` int(11) NOT NULL,
-  `patient_id` int(11) DEFAULT NULL,
-  `patient_name` varchar(255) DEFAULT NULL,
-  `age` int(11) DEFAULT NULL,
-  `sex` varchar(10) DEFAULT NULL,
-  `physician` varchar(255) DEFAULT NULL,
-  `address` text DEFAULT NULL,
-  `mobile` varchar(20) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `hayfever` varchar(3) DEFAULT NULL,
-  `asthma` varchar(3) DEFAULT NULL,
-  `breath` varchar(3) DEFAULT NULL,
-  `hives` varchar(3) DEFAULT NULL,
-  `sinus` varchar(3) DEFAULT NULL,
-  `eczema` varchar(3) DEFAULT NULL,
-  `foodallergy` varchar(3) DEFAULT NULL,
-  `arthritisdiseases` varchar(3) DEFAULT NULL,
-  `immune` varchar(3) DEFAULT NULL,
-  `drugallergy` varchar(3) DEFAULT NULL,
-  `beesting` varchar(3) DEFAULT NULL,
-  `fevergrade` varchar(255) DEFAULT NULL,
-  `itchingsore` varchar(3) DEFAULT NULL,
-  `cycleoffever` varchar(255) DEFAULT NULL,
-  `exacerbations` varchar(255) DEFAULT NULL,
-  `admhospital` varchar(3) DEFAULT NULL,
-  `admhospital_yes` varchar(255) DEFAULT NULL,
-  `gp` varchar(3) DEFAULT NULL,
-  `gp_yes` varchar(255) DEFAULT NULL,
-  `ae` varchar(3) DEFAULT NULL,
-  `ae_yes` varchar(255) DEFAULT NULL,
-  `itu` varchar(3) DEFAULT NULL,
-  `itu_yes` varchar(255) DEFAULT NULL,
-  `coughwhz` varchar(3) DEFAULT NULL,
-  `coughwhz_yes` varchar(255) DEFAULT NULL,
-  `intervals` varchar(3) DEFAULT NULL,
-  `intervals_yes` varchar(255) DEFAULT NULL,
-  `cough_night` varchar(3) DEFAULT NULL,
-  `cough_night_yes` varchar(255) DEFAULT NULL,
-  `morningCough` varchar(3) DEFAULT NULL,
-  `morningCough_yes` varchar(255) DEFAULT NULL,
-  `exercise_symptom` varchar(3) DEFAULT NULL,
-  `exercise_yes` varchar(255) DEFAULT NULL,
-  `smoke` varchar(3) DEFAULT NULL,
-  `smoke_yes` varchar(255) DEFAULT NULL,
-  `pets` varchar(3) DEFAULT NULL,
-  `pets_yes` varchar(255) DEFAULT NULL,
-  `triggers` varchar(255) DEFAULT NULL,
-  `triggers_other` varchar(255) DEFAULT NULL,
-  `Sneezing` varchar(3) DEFAULT NULL,
-  `nasal` varchar(3) DEFAULT NULL,
-  `runningnose` varchar(3) DEFAULT NULL,
-  `itching` varchar(3) DEFAULT NULL,
-  `itchingeyes` varchar(3) DEFAULT NULL,
-  `coughing1` varchar(3) DEFAULT NULL,
-  `Wheezing` varchar(3) DEFAULT NULL,
-  `coughingorwheezing` varchar(3) DEFAULT NULL,
-  `withexcercise` varchar(3) DEFAULT NULL,
-  `headaches` varchar(3) DEFAULT NULL,
-  `nasaldrop` varchar(3) DEFAULT NULL,
-  `heaves` varchar(3) DEFAULT NULL,
-  `hd` varchar(3) DEFAULT NULL,
-  `eczema_2` varchar(3) DEFAULT NULL,
-  `ulcer` varchar(3) DEFAULT NULL,
-  `ulcerd` varchar(3) DEFAULT NULL,
-  `papaulo` varchar(3) DEFAULT NULL,
-  `papaulod` varchar(3) DEFAULT NULL,
-  `norashes` varchar(3) DEFAULT NULL,
-  `norashesd` varchar(3) DEFAULT NULL,
-  `hypertension` varchar(3) DEFAULT NULL,
-  `diabetes` varchar(3) DEFAULT NULL,
-  `epilepsy` varchar(3) DEFAULT NULL,
-  `ihd` varchar(3) DEFAULT NULL,
-  `dak` varchar(3) DEFAULT NULL,
-  `pro` varchar(3) DEFAULT NULL,
-  `def` varchar(3) DEFAULT NULL,
-  `occupation` varchar(255) DEFAULT NULL,
-  `pce` varchar(255) DEFAULT NULL,
-  `location` varchar(255) DEFAULT NULL,
-  `fhistory` varchar(255) DEFAULT NULL,
-  `ocavity` varchar(255) DEFAULT NULL,
-  `skin` varchar(255) DEFAULT NULL,
-  `ent` varchar(255) DEFAULT NULL,
-  `eye` varchar(255) DEFAULT NULL,
-  `rs` varchar(255) DEFAULT NULL,
-  `cvs` varchar(255) DEFAULT NULL,
-  `cns` varchar(255) DEFAULT NULL,
-  `abdomen` varchar(255) DEFAULT NULL,
-  `anyother` varchar(255) DEFAULT NULL,
-  `sctest` varchar(255) DEFAULT NULL,
-  `apanel` varchar(255) DEFAULT NULL,
-  `pdfreport` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `patients`
+--
+ALTER TABLE `patients`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_admin`
@@ -218,20 +265,26 @@ ALTER TABLE `tbl_center`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_history`
+--
+ALTER TABLE `tbl_history`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_patient`
 --
 ALTER TABLE `tbl_patient`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_patients`
---
-ALTER TABLE `tbl_patients`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `patients`
+--
+ALTER TABLE `patients`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_admin`
@@ -246,15 +299,15 @@ ALTER TABLE `tbl_center`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `tbl_history`
+--
+ALTER TABLE `tbl_history`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `tbl_patient`
 --
 ALTER TABLE `tbl_patient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `tbl_patients`
---
-ALTER TABLE `tbl_patients`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
