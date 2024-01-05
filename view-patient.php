@@ -141,7 +141,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                                 <?php echo htmlentities($row['createdAt']) ?>
                                                             </td>
                                                             <td>
-                                                                <a href="edit-patient.php?hid=<?php echo htmlentities($row['centerCode']) ?>"
+                                                                <a href="patient-details.php?pid=<?php echo htmlentities($row['patient_id']) ?>"
                                                                     class="btn btn-primary">View Details</a>
                                                                 |
                                                                 <a class="btn btn-danger" href="#">View Screening</a>

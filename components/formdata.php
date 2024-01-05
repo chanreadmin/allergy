@@ -108,7 +108,7 @@ if (isset($_POST['submit'])) {
         // Code for move image into directory
         move_uploaded_file($_FILES["pdfreport"]["tmp_name"], "../postimages/" . $pdfdata);
 
-        $query = mysqli_query($conn, "Insert into tbl_patients (hayfever, asthma, breath, hives, sinus, eczema_oak, foodallergy, 
+        $query = mysqli_query($conn, "Insert into tbl_history (hayfever, asthma, breath, hives, sinus, eczema_oak, foodallergy, 
         arthritisdiseases, immune, drugallergy, beesting, fevergrade, itchingsore, cycleoffever, 
         exacerbations, admhospital, admhospital_yes, gp, gp_yes, ae, ae_yes, itu, itu_yes, coughwhz, 
         coughwhz_yes, intervals, intervals_yes, cough_night, cough_night_yes, morningCough, morningCough_yes, 

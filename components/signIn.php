@@ -18,6 +18,7 @@ if (isset($_POST['login'])) {
       if (password_verify($password, $hashpassword)) {
         $_SESSION['adminName'] = $rows['adminName'];
         $_SESSION['centerCode'] = $rows['centerCode'];
+        $_SESSION['centerName'] = $rows['centerCode'];
         $_SESSION['login'] = $_POST['adminUsername'];
         $_SESSION['$adminPassword'] = $rows['adminPassword'];
         $_SESSION['admin_email'] = $rows['admin_email'];

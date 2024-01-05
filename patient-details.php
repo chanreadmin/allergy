@@ -130,7 +130,7 @@ if (strlen($_SESSION['login']) == 0) {
                                     <div class="live-preview">
                                         <?php
                                             $sid = intval($_GET['pid']);
-                                            $query = mysqli_query($conn, "SELECT * from patients where patient_id = $sid");
+                                            $query = mysqli_query($conn, "SELECT * from tbl_history where patient_id = $sid");
                                             while ($rows = mysqli_fetch_array($query)) {
                                                 ?>
 
