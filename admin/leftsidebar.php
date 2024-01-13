@@ -529,7 +529,31 @@
                         </ul>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarPages3" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarPages">
+                        <i class="ri-pages-line"></i> <span data-key="t-pages">Follow Up</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarPages3">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="view-followup-patient.php" class="nav-link" data-key="t-starter"> View FollowUp
+                                    Paitent</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="manage-follow-patient.php" class="nav-link" data-key="t-team"> Manage Follow
+                                    Up</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="manage-patients.php" class="nav-link" data-key="t-team"> Manage Patient</a>
+                            </li>
 
+                            <li class="nav-item">
+                                <a href="hospital-docs.php" class="nav-link" data-key="t-faqs"> Documentation </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
 
 
 

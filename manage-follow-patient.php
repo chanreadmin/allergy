@@ -77,12 +77,12 @@ if (strlen($_SESSION['login']) == 0) {
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">Hospital</h4>
+                                <h4 class="mb-sm-0">Follow Up</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
-                                        <li class="breadcrumb-item active">Hospital</li>
+                                        <li class="breadcrumb-item active">Manage Follow Up</li>
                                     </ol>
                                 </div>
 
@@ -94,7 +94,7 @@ if (strlen($_SESSION['login']) == 0) {
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="card-title mb-0">Hospital List</h5>
+                                    <h5 class="card-title mb-0">Manage Follow Up</h5>
                                 </div>
                                 <div class="card-body">
 
@@ -113,8 +113,9 @@ if (strlen($_SESSION['login']) == 0) {
                                             </thead>
                                             <tbody>
                                                 <?php
+
                                                     $users = $_SESSION['adminName'];
-                                                    $myquery = mysqli_query($conn, "Select * from patients WHERE updatedBy = '$users' ");
+                                                    $myquery = mysqli_query($conn, "Select * from patients where updatedBy = '$users'");
                                                     while ($row = mysqli_fetch_array($myquery)) {
 
                                                         ?>
@@ -135,22 +136,16 @@ if (strlen($_SESSION['login']) == 0) {
                                                         <?php echo htmlentities($row['createdAt']) ?>
                                                     </td>
                                                     <td>
-                                                        <!-- <a href="edit-patient.php?hid=<?php echo htmlentities($row['centerCode']) ?>"
-                                                            class="btn btn-primary">Edit</a>
-                                                        | -->
-                                                        <a class="btn btn-danger"
-                                                            href="manage-patients.php?pid=<?php echo htmlentities($row['id']); ?>&&action=del"
-                                                            onclick="return confirm('Do you realy want to delete ?')">Delete</a>
-                                                        |
+
                                                         <a href="add-medication.php?pid=<?php echo htmlentities($row['patient_id']) ?>"
-                                                            class="btn btn-warning">Add Medication</a>
+                                                            class="btn btn-warning">Add follow Up</a>
                                                         |
-                                                        <a href="add-test.php?pid=<?php echo htmlentities($row['patient_id']) ?>"
-                                                            class="btn btn-success">Add Test</a>
+                                                        <a href="allergic-rhinitis.php?pid=<?php echo htmlentities($row['patient_id']) ?>"
+                                                            class="btn btn-success">Add Allergic Rhinitis</a>
                                                         |
                                                         <a href="add-history.php?pid=<?php echo htmlentities($row['patient_id']) ?>"
-                                                            class="btn btn-warning">Add
-                                                            History</a>
+                                                            class="btn btn-danger">Add
+                                                            Atopic Dermatis</a>
 
                                                     </td>
 

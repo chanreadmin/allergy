@@ -444,3 +444,96 @@ function petsz(action) {
         pets_yes.style.display = 'none';
     }
 }
+
+function updateSneezing() {
+    var slider1 = document.getElementById("rangeSlider1");
+    var sliderValueDisplay1 = document.getElementById("sliderValue1");
+    sliderValueDisplay1.innerHTML = "Value: " + slider1.value;
+}
+
+function updateRunningNose() {
+    var slider2 = document.getElementById("rangeSlider2");
+    var sliderValueDisplay2 = document.getElementById("sliderValue2");
+    sliderValueDisplay2.innerHTML = "Value: " + slider2.value;
+}
+function Congestion() {
+    var slider3 = document.getElementById("rangeSlider3");
+    var sliderValueDisplay3 = document.getElementById("sliderValue3");
+    sliderValueDisplay3.innerHTML = "Value: " + slider3.value;
+}
+
+function ItchyNose() {
+    var slider4 = document.getElementById("rangeSlider4");
+    var sliderValueDisplay4 = document.getElementById("sliderValue4");
+    sliderValueDisplay4.innerHTML = "Value: " + slider4.value;
+}
+
+function PostNasalDrop() {
+    var slider5 = document.getElementById("rangeSlider5");
+    var sliderValueDisplay5 = document.getElementById("sliderValue5");
+    sliderValueDisplay5.innerHTML = "Value: " + slider5.value;
+}
+
+function totalns() {
+    var a = parseInt(document.getElementById("rangeSlider1").value);
+    var b = parseInt(document.getElementById("rangeSlider2").value);
+    var c = parseInt(document.getElementById("rangeSlider3").value);
+    var d = parseInt(document.getElementById("rangeSlider4").value);
+    var e = parseInt(document.getElementById("rangeSlider5").value);
+
+    var sum = a + b + c + d + e;
+    document.getElementById('tns').value = sum;
+}
+
+
+function updateEyeSymptoms() {
+    var slider6 = document.getElementById("rangeSlider6");
+    var sliderValueDisplay6 = document.getElementById("sliderValue6");
+    sliderValueDisplay6.innerHTML = "Value: " + slider6.value;
+}
+
+function updateThroatSymptoms() {
+    var slider7 = document.getElementById("rangeSlider7");
+    var sliderValueDisplay7 = document.getElementById("sliderValue7");
+    sliderValueDisplay7.innerHTML = "Value: " + slider7.value;
+}
+function updateChronicSymptoms() {
+    var slider8 = document.getElementById("rangeSlider8");
+    var sliderValueDisplay8 = document.getElementById("sliderValue8");
+    sliderValueDisplay8.innerHTML = "Value: " + slider8.value;
+}
+
+function updateEarSymptoms() {
+    var slider9 = document.getElementById("rangeSlider9");
+    var sliderValueDisplay9 = document.getElementById("sliderValue9");
+    sliderValueDisplay9.innerHTML = "Value: " + slider9.value;
+}
+function updateHeadache() {
+    var slider10 = document.getElementById("rangeSlider10");
+    var sliderValueDisplay10 = document.getElementById("sliderValue10");
+    sliderValueDisplay10.innerHTML = "Value: " + slider10.value;
+}
+
+function updateMentalFunction() {
+    var slider11 = document.getElementById("rangeSlider11");
+    var sliderValueDisplay11 = document.getElementById("sliderValue11");
+    sliderValueDisplay11.innerHTML = "Value: " + slider11.value;
+}
+
+function tnnsymptom() {
+    var f = parseInt(document.getElementById("rangeSlider6").value);
+    var g = parseInt(document.getElementById("rangeSlider7").value);
+    var h = parseInt(document.getElementById("rangeSlider8").value);
+    var i = parseInt(document.getElementById("rangeSlider9").value);
+    var j = parseInt(document.getElementById("rangeSlider10").value);
+    var k = parseInt(document.getElementById("rangeSlider11").value);
+
+    var summ = f + g + h + i + j + k;
+    document.getElementById('tnns').value = summ;
+}
+
+function updateQuality() {
+    var slider12 = document.getElementById("rangeSlider12");
+    var sliderValueDisplay12 = document.getElementById("sliderValue12");
+    sliderValueDisplay12.innerHTML = "Value: " + slider12.value;
+}

@@ -5,10 +5,10 @@ error_reporting(0);
 if (strlen($_SESSION['login']) == 0) {
     header('location:index.php');
 } else {
-
+    $postid = intval($_GET['pid']);
     if ($_GET['action'] = 'del') {
-        $postid = intval($_GET['pid']);
-        $query = mysqli_query($conn, "delete from  patients  where id='$postid'");
+
+        $query = mysqli_query($conn, "delete from  tbl_center  where id='$postid'");
         if ($query) {
             $msg = "Hospital deleted ";
         } else {
@@ -77,12 +77,12 @@ if (strlen($_SESSION['login']) == 0) {
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">Hospital</h4>
+                                <h4 class="mb-sm-0">Allergic Rhinitis</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
-                                        <li class="breadcrumb-item active">Hospital</li>
+                                        <li class="breadcrumb-item active">Allergic Rhinitis</li>
                                     </ol>
                                 </div>
 
@@ -90,11 +90,18 @@ if (strlen($_SESSION['login']) == 0) {
                         </div>
                     </div>
                     <!-- end page title -->
+
+                    <!-- <div class="alert alert-danger" role="alert">
+                        This is <strong>Datatable</strong> page in wihch we have used <b>jQuery</b> with cnd link!
+                    </div> -->
+
+
+
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="card-title mb-0">Hospital List</h5>
+                                    <h5 class="card-title mb-0">Allergic Rhinitis</h5>
                                 </div>
                                 <div class="card-body">
 
@@ -107,14 +114,16 @@ if (strlen($_SESSION['login']) == 0) {
                                                     <th>Age</th>
                                                     <th>Center Code</th>
                                                     <th>Contact</th>
-                                                    <th>Registered date</th>
+                                                    <th>Updated date</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
+                                                    $sid = intval($_GET['pid']);
                                                     $users = $_SESSION['adminName'];
-                                                    $myquery = mysqli_query($conn, "Select * from patients WHERE updatedBy = '$users' ");
+                                                    $myquery = mysqli_query($conn, "SELECT *
+                                                    FROM patients INNER JOIN tbl_allergic_rhinitis ON patients.patient_id = tbl_allergic_rhinitis.patient_id AND tbl_allergic_rhinitis.updatedBy = '$users'");
                                                     while ($row = mysqli_fetch_array($myquery)) {
 
                                                         ?>
@@ -135,22 +144,12 @@ if (strlen($_SESSION['login']) == 0) {
                                                         <?php echo htmlentities($row['createdAt']) ?>
                                                     </td>
                                                     <td>
-                                                        <!-- <a href="edit-patient.php?hid=<?php echo htmlentities($row['centerCode']) ?>"
-                                                            class="btn btn-primary">Edit</a>
-                                                        | -->
+                                                        <a href="view-allergic-followup.php?pid=<?php echo htmlentities($row['id']); ?>"
+                                                            class="btn btn-primary">view</a>
+                                                        |
                                                         <a class="btn btn-danger"
-                                                            href="manage-patients.php?pid=<?php echo htmlentities($row['id']); ?>&&action=del"
-                                                            onclick="return confirm('Do you realy want to delete ?')">Delete</a>
-                                                        |
-                                                        <a href="add-medication.php?pid=<?php echo htmlentities($row['patient_id']) ?>"
-                                                            class="btn btn-warning">Add Medication</a>
-                                                        |
-                                                        <a href="add-test.php?pid=<?php echo htmlentities($row['patient_id']) ?>"
-                                                            class="btn btn-success">Add Test</a>
-                                                        |
-                                                        <a href="add-history.php?pid=<?php echo htmlentities($row['patient_id']) ?>"
-                                                            class="btn btn-warning">Add
-                                                            History</a>
+                                                            href="edit-allergic-followup.php?pid=<?php echo htmlentities($row['id']) ?>">
+                                                            Edit</a>
 
                                                     </td>
 
