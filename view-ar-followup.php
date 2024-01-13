@@ -123,7 +123,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                     $sid = intval($_GET['pid']);
                                                     $users = $_SESSION['adminName'];
                                                     $myquery = mysqli_query($conn, "SELECT *
-                                                    FROM patients INNER JOIN tbl_allergic_rhinitis ON patients.patient_id = tbl_allergic_rhinitis.patient_id AND tbl_allergic_rhinitis.updatedBy = '$users'");
+                                                    FROM patients INNER JOIN tbl_allergic_rhinitis ON patients.patient_id = tbl_allergic_rhinitis.patient_id Where tbl_allergic_rhinitis.updatedBy = '$users' AND tbl_allergic_rhinitis.patient_id = '$sid'");
                                                     while ($row = mysqli_fetch_array($myquery)) {
 
                                                         ?>

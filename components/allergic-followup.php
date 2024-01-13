@@ -54,8 +54,6 @@ if (isset($_POST['submit'])) {
     }
 
 }
-
-
 if (isset($_POST['updated'])) {
     $sneezing = $_POST['sneezing'];
     $rnose = $_POST['rnose'];

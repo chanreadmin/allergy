@@ -91,8 +91,8 @@ if (isset($_POST['submit'])) {
     $cns = $_POST['cns'];
     $abdomen = $_POST['abdomen'];
     $anyother = $_POST['anyother'];
-    $sctest = implode(",", $_POST['sctest']);
-    $apanel = $_POST['apanel'];
+    // $sctest = implode(",", $_POST['sctest']);
+
     $pdfreport = $_FILES["pdfreport"]["name"];
     $updatedBy = $_SESSION['adminName'];
     $centerName = $_SESSION['centerName'];
@@ -108,7 +108,16 @@ if (isset($_POST['submit'])) {
         // Code for move image into directory
         move_uploaded_file($_FILES["pdfreport"]["tmp_name"], "../postimages/" . $pdfdata);
 
-        $query = mysqli_query($conn, "Insert into tbl_history (hayfever, asthma, breath, hives, sinus, eczema_oak, foodallergy, 
+
+        $queryId = mysqli_query($conn, "Select * from tbl_history");
+        while ($rows = mysqli_fetch_array($queryId)) {
+            $history_id = $rows["patient_id"];
+        }
+
+        if ($patient_id == $history_id) {
+            echo "<script>alert('Already exists');</script>";
+        } else {
+            $query = mysqli_query($conn, "Insert IGNORE into tbl_history (hayfever, asthma, breath, hives, sinus, eczema_oak, foodallergy, 
         arthritisdiseases, immune, drugallergy, beesting, fevergrade, itchingsore, cycleoffever, 
         exacerbations, admhospital, admhospital_yes, gp, gp_yes, ae, ae_yes, itu, itu_yes, coughwhz, 
         coughwhz_yes, intervals, intervals_yes, cough_night, cough_night_yes, morningCough, morningCough_yes, 
@@ -116,8 +125,8 @@ if (isset($_POST['submit'])) {
         nasal, runningnose, itching, itchingeyes, coughing1, Wheezing, coughingorwheezing, withexcercise, 
         headaches, nasaldrop, heaves, hd, eczema, eczemad, ulcer, ulcerd, papaulo, papaulod, 
         norashes, norashesd, hypertension, diabetes, epilepsy, ihd, dak, pro, def, occupation, 
-        pce, location, fhistory, ocavity, skin, ent, eye, rs, cvs, cns, abdomen, anyother, sctest, 
-        apanel, pdfreport, updatedBy, centerName, centerCode, patient_id ) 
+        pce, location, fhistory, ocavity, skin, ent, eye, rs, cvs, cns, abdomen, anyother,  
+         pdfreport, updatedBy, centerName, centerCode, patient_id ) 
         
     values('$hayfever','$asthma','$breath','$hives','$sinus','$eczema_oak','$foodallergy','$arthritisdiseases',
     '$immune','$drugallergy','$beesting','$fevergrade','$itchingsore','$cycleoffever','$exacerbations',
@@ -128,15 +137,15 @@ if (isset($_POST['submit'])) {
     '$coughing1','$Wheezing','$coughingorwheezing','$withexcercise','$headaches','$nasaldrop','$heaves',
     '$hd','$eczema','$eczemad','$ulcer','$ulcerd','$papaulo','$papaulod','$norashes','$norashesd',
     '$hypertension','$diabetes','$epilepsy','$ihd','$dak','$pro','$def','$occupation','$pce','$location',
-    '$fhistory','$ocavity','$skin','$ent','$eye','$rs','$cvs','$cns','$abdomen','$anyother','$sctest',
-    '$apanel','$pdfdata','$updatedBy', '$centerName', '$centerCode', '$patient_id' )");
+    '$fhistory','$ocavity','$skin','$ent','$eye','$rs','$cvs','$cns','$abdomen','$anyother',
+    '$pdfdata','$updatedBy', '$centerName', '$centerCode', '$patient_id' )");
 
-
-        if ($query) {
-            echo "<script>alert('You have successfully inserted the data');</script>";
-            echo "<script > document.location ='../add-history.php'; </script>";
-        } else {
-            echo "<script>alert('Failed to insert the data');</script>";
+            if ($query) {
+                echo "<script>alert('You have successfully inserted the data');</script>";
+                echo "<script > document.location ='../add-history.php?pid=$patient_id'; </script>";
+            } else {
+                echo "<script>alert('Failed to insert the data');</script>";
+            }
         }
     }
 }
