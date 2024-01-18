@@ -52,8 +52,8 @@ if (strlen($_SESSION['login']) == 0) {
     }
 
     /* #sliderValue {
-                                                                                                                                                                margin-top: 10px;
-                                                                                                                                                            } */
+                                                                                                                                                                            margin-top: 10px;
+                                                                                                                                                                        } */
     </style>
 </head>
 
@@ -85,11 +85,11 @@ if (strlen($_SESSION['login']) == 0) {
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">Allergic Rhinitis</h4>
+                                <h4 class="mb-sm-0">GPE & Examination</h4>
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
-                                        <li class="breadcrumb-item active">Allergic Rhinitis</li>
+                                        <li class="breadcrumb-item active">GPE & Examination</li>
                                     </ol>
                                 </div>
                             </div>
@@ -101,7 +101,7 @@ if (strlen($_SESSION['login']) == 0) {
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header align-items-center d-flex">
-                                    <h4 class="card-title mb-0 flex-grow-1">Allergic Rhinitis</h4>
+                                    <h4 class="card-title mb-0 flex-grow-1">GPE & Examination</h4>
                                     <div class="flex-shrink-0">
 
                                     </div>
@@ -111,198 +111,7 @@ if (strlen($_SESSION['login']) == 0) {
                                         <form action="components/allergic-followup.php?pid=<?php echo $sid; ?>"
                                             method="post" enctype="multipart/form-data" class="row gy-4">
 
-                                            <!--end col-->
-                                            <div class="table-responsive">
-                                                <table id="buttons-datatables" class="display table table-bordered">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Nasal Symptom Severity</th>
-                                                            <th>Score(0-7)</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>Sneezing</td>
-                                                            <td>
-                                                                <input type="range" data-slider-color="secondary"
-                                                                    id="rangeSlider1" min="0" max="7" value="0" step="1"
-                                                                    oninput="updateSneezing()" onchange="totalns()"
-                                                                    name="sneezing">
-                                                                <div id="sliderValue1">Value: 0</div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Running Nose</td>
-                                                            <td>
-                                                                <input type="range" data-slider-color="secondary"
-                                                                    id="rangeSlider2" min="0" max="7" value="0" step="1"
-                                                                    oninput="updateRunningNose()" onchange="totalns()"
-                                                                    name="rnose">
-                                                                <div id="sliderValue2">Value: 0</div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Congestion</td>
-                                                            <td>
-                                                                <input type="range" data-slider-color="secondary"
-                                                                    id="rangeSlider3" min="0" max="7" value="0" step="1"
-                                                                    oninput="Congestion()" onchange="totalns()"
-                                                                    name="congestion">
-                                                                <div id="sliderValue3">Value: 0</div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Itchy Nose</td>
-                                                            <td>
-                                                                <input type="range" data-slider-color="secondary"
-                                                                    id="rangeSlider4" min="0" max="7" value="0" step="1"
-                                                                    oninput="ItchyNose()" onchange="totalns()"
-                                                                    name="itchynose">
-                                                                <div id="sliderValue4">Value: 0</div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Post Nasal Drop</td>
-                                                            <td>
-                                                                <input type="range" data-slider-color="secondary"
-                                                                    id="rangeSlider5" min="0" max="7" value="0" step="1"
-                                                                    oninput="PostNasalDrop()" onchange="totalns()"
-                                                                    name="pns">
-                                                                <div id="sliderValue5">Value: 0</div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Total Nasal Symptoms</td>
-                                                            <td>
-                                                                <input type="text" class="form-control" id="tns"
-                                                                    name="tns">
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Non Nasal Symptom Severity</th>
-                                                            <th>Score(0-7)</th>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Eye Symptoms</td>
-                                                            <td>
-                                                                <input type="range" data-slider-color="secondary"
-                                                                    id="rangeSlider6" min="0" max="7" value="0" step="1"
-                                                                    oninput="updateEyeSymptoms()"
-                                                                    onchange="tnnsymptom()" name="eyesymptoms">
-                                                                <div id="sliderValue6">Value: 0</div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Throat Symptoms</td>
-                                                            <td>
-                                                                <input type="range" data-slider-color="secondary"
-                                                                    id="rangeSlider7" min="0" max="7" value="0" step="1"
-                                                                    oninput="updateThroatSymptoms()"
-                                                                    onchange="tnnsymptom()" name="throatsymptoms">
-                                                                <div id="sliderValue7">Value: 0</div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Chronic Symptoms</td>
-                                                            <td>
-                                                                <input type="range" data-slider-color="secondary"
-                                                                    id="rangeSlider8" min="0" max="7" value="0" step="1"
-                                                                    oninput="updateChronicSymptoms()" name="chronic"
-                                                                    onchange="tnnsymptom()">
-                                                                <div id="sliderValue8">Value: 0</div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Ear Symptoms</td>
-                                                            <td>
-                                                                <input type="range" data-slider-color="secondary"
-                                                                    id="rangeSlider9" min="0" max="7" value="0" step="1"
-                                                                    oninput="updateEarSymptoms()" name="earsymptoms"
-                                                                    onchange="tnnsymptom()">
-                                                                <div id="sliderValue9">Value: 0</div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Headache</td>
-                                                            <td>
-                                                                <input type="range" data-slider-color="secondary"
-                                                                    id="rangeSlider10" min="0" max="7" value="0"
-                                                                    step="1" oninput="updateHeadache()" name="headache"
-                                                                    onchange="tnnsymptom()">
-                                                                <div id="sliderValue10">Value: 0</div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Mental Function</td>
-                                                            <td>
-                                                                <input type="range" data-slider-color="secondary"
-                                                                    id="rangeSlider11" min="0" max="7" value="0"
-                                                                    name="mental" step="1"
-                                                                    oninput="updateMentalFunction()"
-                                                                    onchange="tnnsymptom()">
-                                                                <div id="sliderValue11">Value: 0</div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Total</td>
-                                                            <td>
-                                                                <input type="text" id="tnns" name="tnns"
-                                                                    class="form-control">
 
-                                                            </td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <th>Quality of life assesment of rhinitis Severly</th>
-                                                            <th>
-                                                                <input type="range" data-slider-color="secondary"
-                                                                    id="rangeSlider12" min="0" max="7" value="0"
-                                                                    name="quality" step="1" oninput="updateQuality()">
-                                                                <div id="sliderValue12">Value: 0</div>
-                                                            </th>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-
-                                            <!-- col start -->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="drug_name" class="form-label">Medication for Non-Nasal
-                                                        Symptom
-                                                    </label>
-                                                    <input type="text" class="form-control" name="nnsymptoms">
-                                                </div>
-                                            </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="drug_name" class="form-label">Medication for Nasal
-                                                        Symptom
-                                                    </label>
-                                                    <input type="text" class="form-control" name="medicationns">
-                                                </div>
-                                            </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="drug_name" class="form-label">No of Antihistamine
-                                                        consumed
-                                                    </label>
-                                                    <input type="text" class="form-control" name="antihistamine">
-                                                </div>
-                                            </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="drug_name" class="form-label">Other Medication, If any?
-                                                    </label>
-                                                    <input type="text" class="form-control" name="othermedication">
-                                                </div>
-                                            </div>
                                             <!-- col end -->
                                             <!-- col start -->
                                             <div class="col-xxl-12 col-md-12">

@@ -143,7 +143,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                         <a href="allergic-rhinitis.php?pid=<?php echo htmlentities($row['patient_id']) ?>"
                                                             class="btn btn-success">Add Allergic Rhinitis</a>
                                                         |
-                                                        <a href="add-history.php?pid=<?php echo htmlentities($row['patient_id']) ?>"
+                                                        <a href="atopic-dermatis.php?pid=<?php echo htmlentities($row['patient_id']) ?>"
                                                             class="btn btn-danger">Add
                                                             Atopic Dermatis</a>
 

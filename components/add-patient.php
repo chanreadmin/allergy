@@ -18,7 +18,6 @@ if (isset($_POST['submit'])) {
 
 
 
-
     $query = mysqli_query($conn, "Insert into patients (patient_name, age, sex, physician, 
         address, mobile, email, updatedBy, centerName, centerCode, patient_id )
         
@@ -34,4 +33,5 @@ if (isset($_POST['submit'])) {
     }
 
 }
+
 ?>

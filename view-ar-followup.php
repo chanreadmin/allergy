@@ -102,6 +102,8 @@ if (strlen($_SESSION['login']) == 0) {
                             <div class="card">
                                 <div class="card-header">
                                     <h5 class="card-title mb-0">Allergic Rhinitis</h5>
+                                    <a href="allergic-rhinitis.php?pid=<?php echo $postid; ?>" style="float:right"
+                                        class="btn btn-primary">Add Follow Up</a>
                                 </div>
                                 <div class="card-body">
 

@@ -146,7 +146,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                             class="btn btn-primary">Allergic Rhinitis</a>
                                                         |
                                                         <a class="btn btn-danger"
-                                                            href="view-investigation.php?pid=<?php echo htmlentities($row['patient_id']) ?>">
+                                                            href="view-atopic.php?pid=<?php echo htmlentities($row['patient_id']) ?>">
                                                             Atopic Dermatis</a>
 
                                                     </td>
