@@ -5,7 +5,6 @@ error_reporting(0);
 if (strlen($_SESSION['login']) == 0) {
     header('location:index.php');
 } else {
-
     if ($_GET['action'] = 'del') {
         $postid = intval($_GET['pid']);
         $query = mysqli_query($conn, "delete from  patients  where id='$postid'");
@@ -16,13 +15,11 @@ if (strlen($_SESSION['login']) == 0) {
         }
     }
     ?>
-
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
     data-sidebar-image="none" data-preloader="disable">
 
 <head>
-
     <meta charset="utf-8" />
     <title>Datatables</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,15 +27,11 @@ if (strlen($_SESSION['login']) == 0) {
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
-
     <!--datatable css-->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
     <!--datatable responsive css-->
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" />
-
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
-
-
     <!-- Layout config Js -->
     <script src="assets/js/layout.js"></script>
     <!-- Bootstrap Css -->
@@ -49,7 +42,6 @@ if (strlen($_SESSION['login']) == 0) {
     <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
-
 </head>
 
 <body>
@@ -138,13 +130,13 @@ if (strlen($_SESSION['login']) == 0) {
                                                     <td>
 
                                                         <a href="add-medication.php?pid=<?php echo htmlentities($row['patient_id']) ?>"
-                                                            class="btn btn-warning">Add follow Up</a>
+                                                            class="btn btn-warning btn-sm">Add follow Up</a>
                                                         |
                                                         <a href="allergic-rhinitis.php?pid=<?php echo htmlentities($row['patient_id']) ?>"
-                                                            class="btn btn-success">Add Allergic Rhinitis</a>
+                                                            class="btn btn-success btn-sm">Add Allergic Rhinitis</a>
                                                         |
                                                         <a href="atopic-dermatis.php?pid=<?php echo htmlentities($row['patient_id']) ?>"
-                                                            class="btn btn-danger">Add
+                                                            class="btn btn-danger btn-sm">Add
                                                             Atopic Dermatis</a>
 
                                                     </td>
