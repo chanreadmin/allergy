@@ -133,7 +133,8 @@ if (strlen($_SESSION['login']) == 0) {
                                                                 <a class="btn btn-danger btn-sm"
                                                                     href="view-atopic.php?pid=<?php echo htmlentities($row['patient_id']) ?>">
                                                                     Atopic Dermatis</a>|
-                                                                <a class="btn btn-success btn-sm" href="#">
+                                                                <a class="btn btn-success btn-sm"
+                                                                    href="view-conjunctivities.php?pid=<?php echo htmlentities($row['patient_id']) ?>">
                                                                     Allergic Conjuctivities</a>
                                                                 |
                                                                 <a class="btn btn-info btn-sm" href="#">

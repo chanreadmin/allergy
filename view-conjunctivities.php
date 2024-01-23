@@ -5,9 +5,10 @@ error_reporting(0);
 if (strlen($_SESSION['login']) == 0) {
     header('location:index.php');
 } else {
+    $postid = intval($_GET['pid']);
     if ($_GET['action'] = 'del') {
-        $postid = intval($_GET['pid']);
-        $query = mysqli_query($conn, "delete from  patients  where id='$postid'");
+
+        $query = mysqli_query($conn, "delete from  tbl_center  where id='$postid'");
         if ($query) {
             $msg = "Hospital deleted ";
         } else {
@@ -15,11 +16,13 @@ if (strlen($_SESSION['login']) == 0) {
         }
     }
     ?>
+
     <!doctype html>
     <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
         data-sidebar-image="none" data-preloader="disable">
 
     <head>
+
         <meta charset="utf-8" />
         <title>Datatables</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,11 +30,15 @@ if (strlen($_SESSION['login']) == 0) {
         <meta content="Themesbrand" name="author" />
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
+
         <!--datatable css-->
         <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
         <!--datatable responsive css-->
         <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" />
+
         <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+
+
         <!-- Layout config Js -->
         <script src="assets/js/layout.js"></script>
         <!-- Bootstrap Css -->
@@ -42,6 +49,7 @@ if (strlen($_SESSION['login']) == 0) {
         <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
         <!-- custom Css-->
         <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+
     </head>
 
     <body>
@@ -69,12 +77,12 @@ if (strlen($_SESSION['login']) == 0) {
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0">Follow Up</h4>
+                                    <h4 class="mb-sm-0">Allergic Conjunctivities</h4>
 
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
-                                            <li class="breadcrumb-item active">Manage Follow Up</li>
+                                            <li class="breadcrumb-item active">Allergic Conjunctivities</li>
                                         </ol>
                                     </div>
 
@@ -82,11 +90,20 @@ if (strlen($_SESSION['login']) == 0) {
                             </div>
                         </div>
                         <!-- end page title -->
+
+                        <!-- <div class="alert alert-danger" role="alert">
+                        This is <strong>Datatable</strong> page in wihch we have used <b>jQuery</b> with cnd link!
+                    </div> -->
+
+
+
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h5 class="card-title mb-0">Manage Follow Up</h5>
+                                        <h5 class="card-title mb-0">Allergic Conjunctivities</h5>
+                                        <a href="add-conjuctivities-followup.php?pid=<?php echo $postid; ?>"
+                                            style=" float:right" class="btn btn-primary">Add Follow Up</a>
                                     </div>
                                     <div class="card-body">
 
@@ -98,16 +115,17 @@ if (strlen($_SESSION['login']) == 0) {
                                                         <th>Patient Name</th>
                                                         <th>Age</th>
                                                         <th>Center Code</th>
-                                                        <!-- <th>Contact</th> -->
-                                                        <th>Registered date</th>
+                                                        <th>Contact</th>
+                                                        <th>Updated date</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php
-
+                                                    $sid = intval($_GET['pid']);
                                                     $users = $_SESSION['adminName'];
-                                                    $myquery = mysqli_query($conn, "Select * from patients where updatedBy = '$users'");
+                                                    $myquery = mysqli_query($conn, "SELECT *
+                                                    FROM patients INNER JOIN tbl_conjunctivities ON patients.patient_id = tbl_conjunctivities.patient_id Where tbl_conjunctivities.updatedBy = '$users' AND tbl_conjunctivities.patient_id = '$sid'");
                                                     while ($row = mysqli_fetch_array($myquery)) {
 
                                                         ?>
@@ -121,26 +139,19 @@ if (strlen($_SESSION['login']) == 0) {
                                                             <td>
                                                                 <?php echo htmlentities($row['centerCode']) ?>
                                                             </td>
-                                                            <!-- <td>
+                                                            <td>
                                                                 <?php echo htmlentities($row['mobile']) ?>
-                                                            </td> -->
+                                                            </td>
                                                             <td>
                                                                 <?php echo htmlentities($row['createdAt']) ?>
                                                             </td>
                                                             <td>
-
-                                                                <a href="add-medication.php?pid=<?php echo htmlentities($row['patient_id']) ?>"
-                                                                    class="btn btn-warning btn-sm">Add follow Up</a>
+                                                                <a href="view-conjunctivities-followup.php?pid=<?php echo htmlentities($row['id']); ?>"
+                                                                    class=" btn btn-primary">view</a>
                                                                 |
-                                                                <a href="allergic-rhinitis.php?pid=<?php echo htmlentities($row['patient_id']) ?>"
-                                                                    class="btn btn-success btn-sm">Add Allergic Rhinitis</a>
-                                                                |
-                                                                <a href="atopic-dermatis.php?pid=<?php echo htmlentities($row['patient_id']) ?>"
-                                                                    class="btn btn-danger btn-sm">Add
-                                                                    Atopic Dermatis</a>
-                                                                |
-                                                                <a href="add-conjuctivities-followup.php?pid=<?php echo htmlentities($row['patient_id']) ?>"
-                                                                    class="btn btn-info btn-sm">Allergic Conjunctivities</a>
+                                                                <a class="btn btn-danger"
+                                                                    href="edit-allergic-followup.php?pid=<?php echo htmlentities($row['id']) ?>">
+                                                                    Edit</a>
 
                                                             </td>
 
@@ -173,7 +184,7 @@ if (strlen($_SESSION['login']) == 0) {
 
 
         <!--start back-to-top-->
-        <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <button onclick=" topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
             <i class="ri-arrow-up-line"></i>
         </button>
         <!--end back-to-top-->
