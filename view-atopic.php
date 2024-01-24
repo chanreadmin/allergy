@@ -5,17 +5,9 @@ error_reporting(0);
 if (strlen($_SESSION['login']) == 0) {
     header('location:index.php');
 } else {
+    $postid = intval($_GET['pid']);
 
-
-    if ($_GET['action'] = 'del') {
-        $postid = intval($_GET['sid']);
-        $query = mysqli_query($conn, "delete from tbl_investigation where id='$postid'");
-        if ($query) {
-            $msg = "Hospital deleted ";
-        } else {
-            $error = "Something went wrong . Please try again.";
-        }
-    }
+    
     ?>
 
 <!doctype html>

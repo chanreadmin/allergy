@@ -227,10 +227,10 @@ if (strlen($_SESSION['login']) == 0) {
 
                                                 <!--end col-->
                                                 <!-- ========================= Investigations ============================= -->
-                                                <div class="col-xxl-12 col-md-12 text-center">
+                                                <!-- <div class="col-xxl-12 col-md-12 text-center">
                                                     <button class="btn btn-primary " name="submit"
                                                         type="submit">Submit</button>
-                                                </div>
+                                                </div> -->
                                         </form>
                                         <?php } ?>
                                         <!--end row-->
