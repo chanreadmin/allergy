@@ -11,12 +11,15 @@ if (isset($_POST['submit'])) {
     $address = $_POST['address'];
     $mobile = $_POST['mobile'];
     $email = $_POST['email'];
-    $updatedBy = $_SESSION['adminName'];
+    $updatedBy = $_SESSION['login'];
     $centerName = $_SESSION['centerName'];
     $centerCode = $_SESSION['centerCode'];
-    $patient_id = $_POST['patient_id'];
+    // $patient_id = $_POST['patient_id'];
 
-
+    $query1 = mysqli_query($conn, "SELECT * from patients ORDER BY id DESC limit 1");
+    while ($rows = mysqli_fetch_array($query1)) {
+        $patient_id = $centerCode . '' . $rows['id'] + 1;
+    }
 
     $query = mysqli_query($conn, "Insert into patients (patient_name, age, sex, physician, 
         address, mobile, email, updatedBy, centerName, centerCode, patient_id )

@@ -5,7 +5,7 @@ error_reporting(0);
 if (strlen($_SESSION['login']) == 0) {
     header('location:index.php');
 } else {
-    $sid = intval($_GET['pid']);
+    $pid = intval($_GET['pid']);
     ?>
 
 <!doctype html>
@@ -50,10 +50,9 @@ if (strlen($_SESSION['login']) == 0) {
         width: 100%;
         margin-top: 10px;
     }
+    }
 
-    /* #sliderValue {
-                                                                                                                                                                            margin-top: 10px;
-                                                                                                                                                                        } */
+    */
     </style>
 </head>
 
@@ -85,11 +84,11 @@ if (strlen($_SESSION['login']) == 0) {
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">GPE & Examination</h4>
+                                <h4 class="mb-sm-0">GPE</h4>
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
-                                        <li class="breadcrumb-item active">GPE & Examination</li>
+                                        <li class="breadcrumb-item active">GPE</li>
                                     </ol>
                                 </div>
                             </div>
@@ -101,15 +100,15 @@ if (strlen($_SESSION['login']) == 0) {
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header align-items-center d-flex">
-                                    <h4 class="card-title mb-0 flex-grow-1">GPE & Examination</h4>
+                                    <h4 class="card-title mb-0 flex-grow-1">GPE</h4>
                                     <div class="flex-shrink-0">
 
                                     </div>
                                 </div>
                                 <div class="card-body">
                                     <div class="live-preview">
-                                        <form action="components/allergic-followup.php?pid=<?php echo $sid; ?>"
-                                            method="post" enctype="multipart/form-data" class="row gy-4">
+                                        <form action="components/gpe-data.php?pid=<?php echo $pid; ?>" method="post"
+                                            enctype="multipart/form-data" class="row gy-4">
 
 
                                             <!-- col end -->
@@ -126,7 +125,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                 <div>
                                                     <label for="drug_name" class="form-label">Weight
                                                     </label>
-                                                    <input type="text" class="form-control" name="weight">
+                                                    <input type="text" class="form-control" name="weights">
                                                 </div>
                                             </div>
                                             <!-- col end -->
@@ -259,6 +258,15 @@ if (strlen($_SESSION['login']) == 0) {
                                                         till next visit
                                                     </label>
                                                     <input type="text" class="form-control" name="advise">
+                                                </div>
+                                            </div>
+                                            <!-- col end -->
+                                            <!-- col start -->
+                                            <div class="col-xxl-3 col-md-6">
+                                                <div>
+                                                    <label for="drug_name" class="form-label">Eye Medication
+                                                    </label>
+                                                    <input type="text" class="form-control" name="eyemeds">
                                                 </div>
                                             </div>
                                             <!-- col end -->

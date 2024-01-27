@@ -106,7 +106,7 @@ if (strlen($_SESSION['login']) == 0) {
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                    $users = $_SESSION['adminName'];
+                                                    $users = $_SESSION['login'];
                                                     $myquery = mysqli_query($conn, "Select * from patients where updatedBy = '$users' ");
                                                     while ($row = mysqli_fetch_array($myquery)) {
                                                         ?>
