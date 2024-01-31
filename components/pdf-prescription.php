@@ -10,8 +10,9 @@ if ($conn->connect_error) {
 }
 session_start();
 $pid = intval($_GET['pid']);
+$sid = intval($_GET['sid']);
 // Fetch data from the database
-$sql = "SELECT * FROM tbl_prescription INNER JOIN patients ON patients.patient_id = tbl_prescription.patient_id where tbl_prescription.patient_id = '$pid' and tbl_prescription.isActive = 1 ";
+$sql = "SELECT  *, tbl_prescription.createdAt as ptime FROM tbl_prescription INNER JOIN patients ON patients.patient_id = tbl_prescription.patient_id where tbl_prescription.patient_id = '$pid' and tbl_prescription.visit = '$sid'";
 $result = $conn->query($sql);
 
 $prescription_data = [];
@@ -21,11 +22,11 @@ if ($result->num_rows > 0) {
         $prescription_data[] = $row;
         $patient_names = $row['patient_name'];
         $patient_id = $row['patient_id'];
-        $datetimeString = $row['createdAt'];
-        // Convert the string to a DateTime object
+        $datetimeString = $row['ptime'];
+
         $dateTime = new DateTime($datetimeString);
-        // Format and display only the date
-        $date = $dateTime->format('Y-m-d');
+
+        $dates = $dateTime->format('d-m-Y');
 
         $age = $row['age'];
         $gender = $row['sex'];
@@ -56,7 +57,7 @@ $pdf->Cell(20, 10, 'Patient ID:', 0, 0);
 $pdf->Cell(30, 10, $patient_id, 0, 0);
 
 $pdf->Cell(20, 10, 'Date:', 0, 0);
-$pdf->Cell(30, 10, $date, 0, 0);
+$pdf->Cell(30, 10, $dates, 0, 0);
 
 $pdf->Ln();
 
@@ -86,9 +87,8 @@ foreach ($prescription_data as $prescription) {
 
     $pdf->Cell(40, 5, $prescription['drug_name'], 0);
     $pdf->Cell(30, 5, $prescription['dose'], 0);
-    $pdf->Cell(30, 5, "" . $prescription['duration'] . " Months", 0);
+    $pdf->Cell(30, 5, "" . $prescription['duration'] . "Months", 0);
     $pdf->Cell(60, 5, $prescription['instruction'], 0);
-
     $pdf->Ln(); // Move to the next line
 }
 $pdf->SetFont('Arial', 'B', 10);
