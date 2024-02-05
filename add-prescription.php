@@ -25,10 +25,8 @@ if (strlen($_SESSION['login']) == 0) {
     //         echo "<script>alert('Failed to insert the data');</script>";
     //     }
     // }
-
     $pid = intval($_GET['pid']);
     ?>
-
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
     data-sidebar-image="none" data-preloader="disable">
@@ -90,7 +88,6 @@ if (strlen($_SESSION['login']) == 0) {
                                 It!</button>
                         </div>
                     </div>
-
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
@@ -101,12 +98,10 @@ if (strlen($_SESSION['login']) == 0) {
         <!-- Left Sidebar End -->
         <!-- Vertical Overlay-->
         <div class="vertical-overlay"></div>
-
         <!-- ============================================================== -->
         <!-- Start right Content here -->
         <!-- ============================================================== -->
         <div class="main-content">
-
             <div class="page-content">
                 <div class="container-fluid">
                     <!-- start page title -->
@@ -124,14 +119,12 @@ if (strlen($_SESSION['login']) == 0) {
                         </div>
                     </div>
                     <!-- end page title -->
-
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header align-items-center d-flex">
                                     <h4 class="card-title mb-0 flex-grow-1">Add Medication</h4>
                                     <div class="flex-shrink-0">
-
                                     </div>
                                 </div>
                                 <div class="card-body">
@@ -160,11 +153,6 @@ if (strlen($_SESSION['login']) == 0) {
                                                 <input type="text" value="<?php echo $pid; ?>" name="patient_id"
                                                     id="patient_id" hidden>
                                             </div>
-
-                                            <div class="col-xxl-3 col-md-6">
-                                                <input type="text" value="<?php echo $pid; ?>" name="patient_id"
-                                                    id="patient_id" hidden>
-                                            </div>
                                             <div class="col-xxl-12 col-md-12">
                                                 <table class="table table-bordered" id="dynamic_field">
                                                     <tr>
@@ -184,10 +172,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                                 class="btn btn-success">+</button></td>
                                                     </tr>
                                                 </table>
-
                                             </div>
-
-
                                             <!-- ========================= Investigations ============================= -->
                                             <div class="col-xxl-12 col-md-12 text-center">
                                                 <button class="btn btn-primary " name="submit" type="submit"
@@ -196,14 +181,17 @@ if (strlen($_SESSION['login']) == 0) {
                                         </form>
                                         <!--end row-->
                                     </div>
-
                                 </div>
                             </div>
                             <div class="card">
                                 <div class="card-header align-items-center d-flex">
-                                    <h4 class="card-title mb-0 flex-grow-1">Medication</h4>
+                                    <h4 class="card-title mb-0 flex-grow-1">Prescription</h4>
                                     <div class="flex-shrink-0">
-
+                                        <!-- <a href="add-prescription.php?pid=<?php $tid = intval($_GET['pid']);
+                                            echo $tid; ?>" class="btn btn-danger">Add
+                                            Prescription</a> -->
+                                        <!-- <a href="components/pdf-prescription.php?pid=<?php $tid = intval($_GET['pid']);
+                                            echo $tid; ?>" class="btn btn-primary">PDF</a> -->
                                     </div>
                                 </div>
                                 <div class="card-body">
@@ -215,7 +203,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                     <tr>
                                                         <th>Date</th>
                                                         <th>visit</th>
-                                                        <th>Duration</th>
+                                                        <th>Patient Id</th>
                                                         <th>Updated By</th>
                                                         <th>Action</th>
                                                     </tr>
@@ -223,34 +211,23 @@ if (strlen($_SESSION['login']) == 0) {
                                                 <tbody>
                                                     <?php
                                                         $gid = intval($_GET['pid']);
-                                                        // $myquery = mysqli_query($conn, "Select createdAt, visit, duration, instruction from tbl_prescription GROUP BY visit ORDER BY visit DESC where patient_id = '$gid' ");
-                                                        $myquery = mysqli_query($conn, "SELECT drug_name,
-  dose,
-  duration,
-  instruction,
-  centerCode,
-  centerName,
-  patient_id,
-  updatedBy,
-  visit,
-  createdAt
-FROM (
-  SELECT
-    drug_name,
-    dose,
-    duration,
-    instruction,
-    centerCode,
-    centerName,
-    patient_id,
-    updatedBy,
-    visit,
-    createdAt,
-    ROW_NUMBER() OVER (PARTITION BY visit ORDER BY createdAt) AS row_num
-  FROM tbl_prescription
-) AS ranked
-WHERE row_num = 1 && patient_id = '$gid'");
-
+                                                        $myquery = mysqli_query($conn, "SELECT
+                                                    MAX(drug_name) AS drug_name,
+                                                    MAX(dose) AS dose,
+                                                    MAX(duration) AS duration,
+                                                    MAX(instruction) AS instruction,
+                                                    MAX(centerCode) AS centerCode,
+                                                    MAX(centerName) AS centerName,
+                                                    MAX(patient_id) AS patient_id,
+                                                    MAX(updatedBy) AS updatedBy,
+                                                    visit,
+                                                    MAX(createdAt) AS createdAt
+                                                FROM
+                                                    tbl_prescription
+                                                WHERE
+                                                    patient_id = '$gid'
+                                                GROUP BY
+                                                    visit ORDER BY visit DESC;");
                                                         while ($row = mysqli_fetch_array($myquery)) {
 
                                                             ?>
@@ -272,9 +249,9 @@ WHERE row_num = 1 && patient_id = '$gid'");
                                                                 href="view-prescription.php?pid=<?php echo $gid; ?>&&sid=<?php echo htmlentities($row['visit']); ?>">
                                                                 View</a>
                                                         </td>
-
                                                     </tr>
                                                     <?php } ?>
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -289,12 +266,8 @@ WHERE row_num = 1 && patient_id = '$gid'");
             <?php include('admin/footer.php') ?>
         </div>
         <!-- end main content-->
-
     </div>
     <!-- END layout-wrapper -->
-
-
-
     <!--start back-to-top-->
     <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
         <i class="ri-arrow-up-line"></i>

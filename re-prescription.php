@@ -28,6 +28,7 @@ if (strlen($_SESSION['login']) == 0) {
 
     $pid = intval($_GET['pid']);
     $vid = intval($_GET['sid']);
+    $newVisit = $vid;
     ?>
 
 <!doctype html>
@@ -133,11 +134,103 @@ if (strlen($_SESSION['login']) == 0) {
                                 <div class="card-header align-items-center d-flex">
                                     <h4 class="card-title mb-0 flex-grow-1">Medication</h4>
                                     <div class="flex-shrink-0">
-                                    <a href="re-prescription.php?pid=<?php $tid = intval($_GET['pid']);
-                                            echo $tid; ?>&&sid=<?php echo $vid; ?>" class="btn btn-primary">Re assign</a>
-                                      
+                                        <!-- <a href="re-prescription.php?pid=<?php $tid = intval($_GET['pid']);
+                                            echo $tid; ?>&&sid=<?php echo $vid; ?>?>" class="btn btn-primary">PDF</a> -->
                                         <a href="components/pdf-prescription.php?pid=<?php $tid = intval($_GET['pid']);
                                             echo $tid; ?>&&sid=<?php echo $vid; ?>?>" class="btn btn-primary">PDF</a>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="live-preview">
+                                        <form method="POST" enctype="multipart/form-data" class="row gy-4"
+                                            name="add_name" id="add_name">
+                                            <div class="col-md-2 col-xxl-2 ">
+                                                <label for="">Visit</label>
+                                                <div class="input-group mb-3 input-group-sm">
+                                                    <select name="visit" id="visit" class="form-control">
+                                                        <option value="">Select</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-xxl-3 col-md-6">
+                                                <input type="text" value="<?php echo $pid; ?>" name="patient_id"
+                                                    id="patient_id" hidden>
+                                            </div>
+                                            <div class="table-responsive">
+                                                <div class="table-responsive">
+                                                    <table id="dynamic_field" class="display table table-bordered"
+                                                        style="width:100%">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Drug</th>
+                                                                <th>Dose</th>
+                                                                <th>Duration</th>
+                                                                <th>Instruction</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <?php
+                                                                $gid = intval($_GET['pid']);
+                                                                $sid = intval($_GET['sid']);
+                                                                $myquery = mysqli_query($conn, "SELECT * from tbl_prescription Where patient_id = '$gid' && visit ='$sid'");
+
+                                                                while ($row = mysqli_fetch_array($myquery)) {
+                                                                    ?>
+                                                            <tr>
+                                                                <td><input type="text" name="drug_name[]"
+                                                                        placeholder="Enter drug name.."
+                                                                        value="<?php echo htmlentities($row['drug_name']) ?>"
+                                                                        class="form-control" required></td>
+                                                                <td><input type="text" name="dose[]"
+                                                                        value="<?php echo htmlentities($row['dose']) ?>"
+                                                                        placeholder="Enter dose.." class="form-control"
+                                                                        required></td>
+                                                                <td><input type="text" name="duration[]"
+                                                                        value="<?php echo htmlentities($row['duration']) ?>"
+                                                                        placeholder="Enter duration.."
+                                                                        class="form-control" required></td>
+                                                                <td><input type="text" name="instruction[]"
+                                                                        value="<?php echo htmlentities($row['instruction']) ?>"
+                                                                        placeholder="Enter instruction.."
+                                                                        class="form-control"></td>
+                                                                <td><button type="button" name="remove"
+                                                                        class="btn btn-danger btn_remove">X</button>
+                                                                </td>
+                                                            </tr>
+                                                            <?php } ?>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <button type="button" id="add" class="btn btn-success">Add Row</button>
+                                                <button type="submit" class="btn btn-primary" id="submit"
+                                                    name="submit">Submit</button>
+                                            </div>
+
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header align-items-center d-flex">
+                                    <h4 class="card-title mb-0 flex-grow-1">Prescription</h4>
+                                    <div class="flex-shrink-0">
+                                        <!-- <a href="add-prescription.php?pid=<?php $tid = intval($_GET['pid']);
+                                            echo $tid; ?>" class="btn btn-danger">Add
+                                            Prescription</a> -->
+                                        <!-- <a href="components/pdf-prescription.php?pid=<?php $tid = intval($_GET['pid']);
+                                            echo $tid; ?>" class="btn btn-primary">PDF</a> -->
                                     </div>
                                 </div>
                                 <div class="card-body">
@@ -147,40 +240,43 @@ if (strlen($_SESSION['login']) == 0) {
                                                 style="width:100%">
                                                 <thead>
                                                     <tr>
-                                                        <th>Drug</th>
-                                                        <th>Dose</th>
-                                                        <th>Duration</th>
-                                                        <th>Instruction</th>
-                                                        <!-- <th>Action</th> -->
+                                                        <th>Date</th>
+                                                        <th>visit</th>
+                                                        <th>Patient Id</th>
+                                                        <th>Updated By</th>
+                                                        <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <?php
                                                         $gid = intval($_GET['pid']);
-                                                        $sid = intval($_GET['sid']);
-                                                        // $myquery = mysqli_query($conn, "Select createdAt, visit, duration, instruction from tbl_prescription GROUP BY visit ORDER BY visit DESC where patient_id = '$gid' ");
-                                                        $myquery = mysqli_query($conn, "SELECT * from tbl_prescription Where patient_id = '$gid' && visit ='$sid'");
-
+                                                        $myquery = mysqli_query($conn, "SELECT
+                                                            MAX(drug_name) AS drug_name, MAX(dose) AS dose, MAX(duration) AS duration, MAX(instruction) AS instruction,
+                                                            MAX(centerCode) AS centerCode, MAX(centerName) AS centerName, MAX(patient_id) AS patient_id,
+                                                            MAX(updatedBy) AS updatedBy, visit, MAX(createdAt) AS createdAt FROM tbl_prescription
+                                                        WHERE patient_id = '$gid' GROUP BY visit ORDER BY visit DESC;");
                                                         while ($row = mysqli_fetch_array($myquery)) {
-
                                                             ?>
                                                     <tr>
                                                         <td>
-                                                            <?php echo htmlentities($row['drug_name']) ?>
+                                                            <?php echo htmlentities($row['createdAt']) ?>
                                                         </td>
                                                         <td>
-                                                            <?php echo htmlentities($row['dose']) ?>
+                                                            <?php echo htmlentities($row['visit']) ?>
                                                         </td>
                                                         <td>
-                                                            <?php echo htmlentities($row['duration']) ?>
+                                                            <?php echo htmlentities($row['patient_id']) ?>
                                                         </td>
                                                         <td>
-                                                            <?php echo htmlentities($row['instruction']) ?>
+                                                            <?php echo htmlentities($row['updatedBy']) ?>
                                                         </td>
-
-
+                                                        <td>
+                                                            <a
+                                                                href="view-prescription.php?pid=<?php echo $gid; ?>&&sid=<?php echo htmlentities($row['visit']); ?>">View</a>
+                                                        </td>
                                                     </tr>
                                                     <?php } ?>
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -224,8 +320,8 @@ if (strlen($_SESSION['login']) == 0) {
     <!--Swiper slider js-->
     <script src="assets/libs/swiper/swiper-bundle.min.js"></script>
     <!--jquery cdn-->
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> -->
     <!--select2 cdn-->
     <!-- Dashboard init -->
     <script src="assets/js/pages/dashboard-ecommerce.init.js"></script>
@@ -274,6 +370,41 @@ if (strlen($_SESSION['login']) == 0) {
 
     });
     </script>
+    <!-- <script>
+    $(document).ready(function() {
+        var i = <?php echo $i; ?>;
+
+        $('#add').click(function() {
+            i++;
+            var newRow = '<tr id="row' + i + '">' +
+                '<td><input type="text" name="drug_name[]" placeholder="Enter drug name.." class="form-control" /></td>' +
+                '<td><input type="text" name="dose[]" placeholder="Enter dose.." class="form-control" /></td>' +
+                '<td><input type="text" name="duration[]" placeholder="Enter duration.." class="form-control" /></td>' +
+                '<td><input type="text" name="instruction[]" placeholder="Enter instruction.." class="form-control" /></td>' +
+                '<td><button type="button" name="remove" id="' + i +
+                '" class="btn btn-danger btn_remove">X</button></td>' +
+                '</tr>';
+            $('#dynamic_field').append(newRow);
+        });
+
+        $(document).on('click', '.btn_remove', function() {
+            var button_id = $(this).attr("id");
+            $('#row' + button_id).remove();
+        });
+
+        $('#submit').click(function() {
+            $.ajax({
+                url: "components/add-prescription-patient.php",
+                method: "POST",
+                data: $('#add_name').serialize(),
+                success: function(data) {
+                    alert(data);
+                    $('#add_name')[0].reset();
+                }
+            });
+        });
+    });
+    </script> -->
 </body>
 
 </html>

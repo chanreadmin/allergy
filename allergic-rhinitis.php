@@ -13,7 +13,6 @@ if (strlen($_SESSION['login']) == 0) {
     data-sidebar-image="none" data-preloader="disable">
 
 <head>
-
     <meta charset="utf-8" />
     <title>Admin Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,10 +23,8 @@ if (strlen($_SESSION['login']) == 0) {
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <!-- jsvectormap css -->
     <link href="assets/libs/jsvectormap/css/jsvectormap.min.css" rel="stylesheet" type="text/css" />
-
     <!--Swiper slider css-->
     <link href="assets/libs/swiper/swiper-bundle.min.css" rel="stylesheet" type="text/css" />
-
     <!-- Layout config Js -->
     <script src="assets/js/layout.js"></script>
     <!-- Bootstrap Css -->
@@ -43,29 +40,18 @@ if (strlen($_SESSION['login']) == 0) {
         display: none;
     }
 
-
-
-
     input[type="range"] {
         width: 100%;
         margin-top: 10px;
     }
-
-    /* #sliderValue {
-                                                                                                                                                                margin-top: 10px;
-                                                                                                                                                            } */
     </style>
 </head>
 
 <body>
-
     <!-- Begin page -->
     <div id="layout-wrapper">
-
         <?php include('admin/header.php') ?>
-
         <!-- removeNotificationModal -->
-
         <!-- ========== App Menu ========== -->
         <?php
             include('admin/leftsidebar.php')
@@ -73,7 +59,6 @@ if (strlen($_SESSION['login']) == 0) {
         <!-- Left Sidebar End -->
         <!-- Vertical Overlay-->
         <div class="vertical-overlay"></div>
-
         <!-- ============================================================== -->
         <!-- Start right Content here -->
         <!-- ============================================================== -->
@@ -96,14 +81,12 @@ if (strlen($_SESSION['login']) == 0) {
                         </div>
                     </div>
                     <!-- end page title -->
-
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header align-items-center d-flex">
                                     <h4 class="card-title mb-0 flex-grow-1">Allergic Rhinitis</h4>
                                     <div class="flex-shrink-0">
-
                                     </div>
                                 </div>
                                 <div class="card-body">

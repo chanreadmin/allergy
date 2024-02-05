@@ -25,57 +25,46 @@
                     <tbody>
                         <?php
                         $gid = intval($_GET['pid']);
-                        // $myquery = mysqli_query($conn, "Select createdAt, visit, duration, instruction from tbl_prescription GROUP BY visit ORDER BY visit DESC where patient_id = '$gid' ");
-                        $myquery = mysqli_query($conn, "SELECT drug_name,
-  dose,
-  duration,
-  instruction,
-  centerCode,
-  centerName,
-  patient_id,
-  updatedBy,
-  visit,
-  createdAt
-FROM (
-  SELECT
-    drug_name,
-    dose,
-    duration,
-    instruction,
-    centerCode,
-    centerName,
-    patient_id,
-    updatedBy,
+                        $myquery = mysqli_query($conn, "SELECT
+    MAX(drug_name) AS drug_name,
+    MAX(dose) AS dose,
+    MAX(duration) AS duration,
+    MAX(instruction) AS instruction,
+    MAX(centerCode) AS centerCode,
+    MAX(centerName) AS centerName,
+    MAX(patient_id) AS patient_id,
+    MAX(updatedBy) AS updatedBy,
     visit,
-    createdAt,
-    ROW_NUMBER() OVER (PARTITION BY visit ORDER BY createdAt) AS row_num
-  FROM tbl_prescription
-) AS ranked
-WHERE row_num = 1 && patient_id = '$gid' ORDER BY visit DESC");
-
+    MAX(createdAt) AS createdAt
+FROM
+    tbl_prescription
+WHERE
+    patient_id = '$gid'
+GROUP BY
+    visit ORDER BY visit DESC;");
                         while ($row = mysqli_fetch_array($myquery)) {
 
                             ?>
-                            <tr>
-                                <td>
-                                    <?php echo htmlentities($row['createdAt']) ?>
-                                </td>
-                                <td>
-                                    <?php echo htmlentities($row['visit']) ?>
-                                </td>
-                                <td>
-                                    <?php echo htmlentities($row['patient_id']) ?>
-                                </td>
-                                <td>
-                                    <?php echo htmlentities($row['updatedBy']) ?>
-                                </td>
-                                <td>
-                                    <a
-                                        href="view-prescription.php?pid=<?php echo $gid; ?>&&sid=<?php echo htmlentities($row['visit']); ?>">
-                                        View</a>
-                                </td>
+                        <tr>
+                            <td>
+                                <?php echo htmlentities($row['createdAt']) ?>
+                            </td>
+                            <td>
+                                <?php echo htmlentities($row['visit']) ?>
+                            </td>
+                            <td>
+                                <?php echo htmlentities($row['patient_id']) ?>
+                            </td>
+                            <td>
+                                <?php echo htmlentities($row['updatedBy']) ?>
+                            </td>
+                            <td>
+                                <a
+                                    href="view-prescription.php?pid=<?php echo $gid; ?>&&sid=<?php echo htmlentities($row['visit']); ?>">
+                                    View</a>
+                            </td>
 
-                            </tr>
+                        </tr>
                         <?php } ?>
                 </table>
             </div>

@@ -36,19 +36,15 @@
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarPages1" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarPages">
-                        <i class="ri-pages-line"></i> <span data-key="t-pages">Hospital</span>
+                        <i class="ri-pages-line"></i> <span data-key="t-pages">Staffs</span>
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarPages1">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="add-center.php" class="nav-link" data-key="t-starter"> Add Hospital </a>
+                                <a href="add-doctor.php" class="nav-link" data-key="t-starter"> Add </a>
                             </li>
                             <li class="nav-item">
-                                <a href="view-hospital.php" class="nav-link" data-key="t-team"> Manage Hospitals </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="hospital-docs.php" class="nav-link" data-key="t-faqs"> Documentation </a>
+                                <a href="view-hospital.php" class="nav-link" data-key="t-team"> View Doctor </a>
                             </li>
                         </ul>
                     </div>

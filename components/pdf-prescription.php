@@ -23,11 +23,8 @@ if ($result->num_rows > 0) {
         $patient_names = $row['patient_name'];
         $patient_id = $row['patient_id'];
         $datetimeString = $row['ptime'];
-
         $dateTime = new DateTime($datetimeString);
-
         $dates = $dateTime->format('d-m-Y');
-
         $age = $row['age'];
         $gender = $row['sex'];
     }
@@ -87,7 +84,7 @@ foreach ($prescription_data as $prescription) {
 
     $pdf->Cell(40, 5, $prescription['drug_name'], 0);
     $pdf->Cell(30, 5, $prescription['dose'], 0);
-    $pdf->Cell(30, 5, "" . $prescription['duration'] . "Months", 0);
+    $pdf->Cell(30, 5, "" . $prescription['duration'] . " Months", 0);
     $pdf->Cell(60, 5, $prescription['instruction'], 0);
     $pdf->Ln(); // Move to the next line
 }
