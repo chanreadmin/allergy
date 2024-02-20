@@ -94,7 +94,7 @@ $pdf->SetFont('Arial', 'B', 10);
 $pdf->SetY($pdf->GetY() + 130); // Adjust the value as needed
 
 $pdf->SetX(10); // Adjust the X position as needed
-$pdf->Cell(180, 10, "Printed By: " . $_SESSION['adminName'], 0, 1, 'R');
+$pdf->Cell(180, 10, "Printed By: " . $_SESSION['empName'], 0, 1, 'R');
 
 
 // Output the PDF as a download

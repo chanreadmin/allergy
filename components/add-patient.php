@@ -15,10 +15,9 @@ if (isset($_POST['submit'])) {
     $centerName = $_SESSION['centerName'];
     $centerCode = $_SESSION['centerCode'];
     // $patient_id = $_POST['patient_id'];
-
     $query1 = mysqli_query($conn, "SELECT * from patients ORDER BY id DESC limit 1");
     while ($rows = mysqli_fetch_array($query1)) {
-        $patient_id = $centerCode .  . $rows['id'] + 1 '';
+        $patient_id = $centerCode . '' . $rows['id'] + 1;
     }
 
     $query = mysqli_query($conn, "Insert into patients (patient_name, age, sex, physician, 
@@ -34,7 +33,6 @@ if (isset($_POST['submit'])) {
     } else {
         echo "<script>alert('Failed to insert the data');</script>";
     }
-
 }
 
 ?>

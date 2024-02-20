@@ -272,6 +272,15 @@ if (strlen($_SESSION['login']) == 0) {
                                                     Smoker
                                                 </div>
                                             </div>
+
+                                            <div class="col-xxl-6 col-md-6">
+                                                <div>
+                                                    <label for="othermedications" class="form-label">Respiratory
+                                                        system Examination</label>
+                                                    <textarea class="form-control" name="resexam"
+                                                        id="resexam"><?php echo htmlentities($row['resexam']); ?></textarea>
+                                                </div>
+                                            </div>
                                             <!-- ========================= Investigations ============================= -->
 
                                         </form>

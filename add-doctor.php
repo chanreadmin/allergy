@@ -114,6 +114,19 @@ if (strlen($_SESSION['login']) == 0) {
                                                             Please enter Hospital Name
                                                         </div>
                                                     </div>
+
+                                                    <div class="mb-3 col-xxl-4 col-md-6">
+                                                        <label for="useremail" class="form-label">Role <span
+                                                                class="text-danger">*</span></label>
+                                                        <select name="role" id="role" class="form-control">
+                                                            <option value="">Select</option>
+                                                            <option value="Doctor">Doctor</option>
+                                                            <option value="Receptionist">Receptionist</option>
+                                                        </select>
+                                                        <div class="invalid-feedback">
+                                                            Please enter email
+                                                        </div>
+                                                    </div>
                                                     <div class="mb-3 col-xxl-4 col-md-6">
                                                         <label for="username" class="form-label">Qualification <span
                                                                 class="text-danger">*</span></label>
@@ -147,11 +160,11 @@ if (strlen($_SESSION['login']) == 0) {
                                                     </div>
 
                                                     <div class="mb-3 col-xxl-4 col-md-6">
-                                                        <label for="username" class="form-label">Center Name <span
-                                                                class="text-danger">*</span></label>
+                                                        <!-- <label for="username" class="form-label">Center Name <span
+                                                                    class="text-danger">*</span></label> -->
                                                         <input type="text" class="form-control" name="centerName"
                                                             id="hospital_name" value="<?php echo $centerName; ?>"
-                                                            placeholder="Enter Hospital Name" required disabled>
+                                                            placeholder="Enter Hospital Name" required hidden>
                                                         <div class="invalid-feedback">
                                                             Please enter Hospital Name
                                                         </div>
@@ -159,11 +172,11 @@ if (strlen($_SESSION['login']) == 0) {
 
 
                                                     <div class="mb-3 col-xxl-4 col-md-6">
-                                                        <label for="username" class="form-label">Center Code<span
-                                                                class="text-danger">*</span></label>
+                                                        <!-- <label for="username" class="form-label">Center Code<span
+                                                                class="text-danger">*</span></label> -->
                                                         <input type="text" class="form-control" name="centerCode"
                                                             id="centerCode" placeholder="Enter center code"
-                                                            value="<?php echo $centerCode; ?>" required disabled>
+                                                            value="<?php echo $centerCode; ?>" required hidden>
                                                         <div class="invalid-feedback">
                                                             Please enter center code
                                                         </div>
@@ -172,8 +185,8 @@ if (strlen($_SESSION['login']) == 0) {
                                                     <div class="mb-3 col-xxl-4 col-md-6">
                                                         <label for="username" class="form-label">Mobile<span
                                                                 class="text-danger">*</span></label>
-                                                        <input type="text" class="form-control" id="mobile"
-                                                            name="center_contact" placeholder="Enter mobile number"
+                                                        <input type="text" class="form-control" id="usermobile"
+                                                            name="usermobile" placeholder="Enter mobile number"
                                                             required>
                                                         <div class="invalid-feedback">
                                                             Please enter mobile number
@@ -184,26 +197,11 @@ if (strlen($_SESSION['login']) == 0) {
                                                         <label for="useremail" class="form-label">Email <span
                                                                 class="text-danger">*</span></label>
                                                         <input type="email" class="form-control" id="useremail"
-                                                            name="center_email" placeholder="Enter email address"
-                                                            required>
+                                                            name="useremail" placeholder="Enter email address" required>
                                                         <div class="invalid-feedback">
                                                             Please enter email
                                                         </div>
                                                     </div>
-                                                    <div class="mb-3 col-xxl-4 col-md-6">
-                                                        <label for="useremail" class="form-label">Role <span
-                                                                class="text-danger">*</span></label>
-                                                        <select name="role" id="role" class="form-control">
-                                                            <option value="">Select</option>
-                                                            <option value="Doctor">Doctor</option>
-                                                            <option value="Receptionist">Receptionist</option>
-                                                        </select>
-                                                        <div class="invalid-feedback">
-                                                            Please enter email
-                                                        </div>
-                                                    </div>
-
-
                                                     <div class="mb-3 col-xxl-4 col-md-6">
                                                         <label for="username" class="form-label">Username <span
                                                                 class="text-danger">*</span></label>
@@ -220,7 +218,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                             <input type="password"
                                                                 class="form-control pe-5 password-input"
                                                                 onpaste="return false" placeholder="Enter password"
-                                                                id="empPassword" aria-describedby="passwordInput"
+                                                                id="password-input" aria-describedby="passwordInput"
                                                                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                                                                 name="empPassword" required>
                                                             <button

@@ -41,7 +41,7 @@ if ($number > 0) {
             $instruction = mysqli_real_escape_string($conn, $_POST['instruction'][$i]);
             $gid = mysqli_real_escape_string($conn, $_POST['patient_id']);
             $visit = mysqli_real_escape_string($conn, $_POST['visit']);
-            $updatedBy = $_SESSION['adminName'];
+            $updatedBy = $_SESSION['login'];
             $centerName = $_SESSION['centerName'];
             $centerCode = $_SESSION['centerCode'];
             $isActive = 1;

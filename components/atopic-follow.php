@@ -24,6 +24,7 @@ if (isset($_POST['submit'])) {
     $pmedications = $_POST['pmedications'];
     $lapplication = $_POST['lapplication'];
     $othermedications = $_POST['othermedications'];
+    $skinexam = $_POST['skinexam'];
     $updatedBy = $_SESSION['adminName'];
     $centerName = $_SESSION['centerName'];
     $centerCode = $_SESSION['centerCode'];
@@ -32,9 +33,9 @@ if (isset($_POST['submit'])) {
 
 
 
-    $query = mysqli_query($conn, "Insert into tbl_atopic (symptoms, affected_area, erythema, oedema, swl, oozing, crusting, excoration, lichenification, dryness, redness, swelling, ooz, scratching, thickend, itching, sleep, pmedications, lapplication, othermedications, centerCode, centerName, patient_id, updatedBy )
+    $query = mysqli_query($conn, "Insert into tbl_atopic (symptoms, affected_area, erythema, oedema, swl, oozing, crusting, excoration, lichenification, dryness, redness, swelling, ooz, scratching, thickend, itching, sleep, pmedications, lapplication, othermedications,skinexam, centerCode, centerName, patient_id, updatedBy )
         
-    values('$symptoms','$affected_area','$erythema','$oedema','$swl','$oozing','$crusting','$excoration','$lichenification','$dryness','$redness','$swelling','$ooz','$scratching','$thickend','$itching','$sleep','$pmedications','$lapplication','$othermedications','$centerCode','$centerName','$patient_id','$updatedBy'
+    values('$symptoms','$affected_area','$erythema','$oedema','$swl','$oozing','$crusting','$excoration','$lichenification','$dryness','$redness','$swelling','$ooz','$scratching','$thickend','$itching','$sleep','$pmedications','$lapplication','$othermedications','$skinexam','$centerCode','$centerName','$patient_id','$updatedBy'
  )");
 
 
@@ -68,6 +69,7 @@ if (isset($_POST['update'])) {
     $pmedications = $_POST['pmedications'];
     $lapplication = $_POST['lapplication'];
     $othermedications = $_POST['othermedications'];
+    $skinexam = $_POST['skinexam'];
     $updatedBy = $_SESSION['adminName'];
     $centerName = $_SESSION['centerName'];
     $centerCode = $_SESSION['centerCode'];
@@ -84,7 +86,7 @@ if (isset($_POST['update'])) {
 
     $query = mysqli_query($conn, "UPDATE tbl_atopic SET symptoms='$symptoms', affected_area = '$affected_area', erythema = '$erythema', 
 oedema= '$oedema', swl = '$swl', oozing = '$oozing', crusting = '$crusting', excoration= '$excoration', lichenification = '$lichenification', dryness = '$dryness',  redness='$redness', swelling='$swelling',
-ooz = '$ooz', scratching = '$scratching', thickend = '$thickend', itching = '$itching', sleep= '$sleep', pmedications='$pmedications', lapplication = '$lapplication', othermedications = '$othermedications' WHERE id= '$edit_id'
+ooz = '$ooz', scratching = '$scratching', thickend = '$thickend', itching = '$itching', sleep= '$sleep', pmedications='$pmedications', lapplication = '$lapplication', othermedications = '$othermedications', skinexam='$skinexam' WHERE id= '$edit_id'
  ");
 
     if ($query) {

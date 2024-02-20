@@ -52,33 +52,7 @@ if (strlen($_SESSION['login']) == 0) {
 
         <?php include('admin/header.php') ?>
 
-        <!-- removeNotificationModal -->
-        <div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-                            id="NotificationModalbtn-close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="mt-2 text-center">
-                            <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop"
-                                colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
-                            <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
-                                <h4>Are you sure ?</h4>
-                                <p class="text-muted mx-4 mb-0">Are you sure you want to remove this Notification ?</p>
-                            </div>
-                        </div>
-                        <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
-                            <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn w-sm btn-danger" id="delete-notification">Yes, Delete
-                                It!</button>
-                        </div>
-                    </div>
 
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
         <!-- ========== App Menu ========== -->
         <?php
             include('admin/leftsidebar.php')
@@ -199,7 +173,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                         </tr>
 
                                                         <tr>
-                                                            <td>Eczema or other rashes (Poison Oak, Etc.)</td>
+                                                            <td>Eczema or other rashes</td>
                                                             <td><input type="radio" id="eczema" class="btn btn-success"
                                                                     name="eczema_oak" value="Yes">
                                                             </td>
@@ -242,7 +216,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                         </tr>
 
                                                         <tr>
-                                                            <td>Drug Allergy (Penicillin, Sulpha Aspirin, other)</td>
+                                                            <td>Drug Allergy (Penicillin, Sulpha Aspirin, others)</td>
                                                             <td><input type="radio" id="drugallergy"
                                                                     class="btn btn-success" name="drugallergy"
                                                                     value="Yes">
@@ -444,7 +418,7 @@ if (strlen($_SESSION['login']) == 0) {
                                             <!--end col-->
                                             <div class="col-xxl-3 col-md-6">
                                                 <div>
-                                                    <label for="borderInput" class="form-label">Any ITU admissions in
+                                                    <label for="borderInput" class="form-label">Any ICU admissions in
                                                         the past?
                                                     </label>
                                                 </div>
@@ -853,7 +827,7 @@ if (strlen($_SESSION['login']) == 0) {
                                             </div>
                                             <div class="col-xxl-3 col-md-6">
                                                 <div>
-                                                    <label for="borderInput" class="form-label">Heaves</label>
+                                                    <label for="borderInput" class="form-label">Hives</label>
                                                 </div>
                                             </div>
                                             <div class="col-xxl-3 col-md-6">
@@ -865,7 +839,7 @@ if (strlen($_SESSION['login']) == 0) {
                                             </div>
                                             <div class="col-xxl-3 col-md-6">
                                                 <div>
-                                                    <label for="borderInput" class="form-label">Heaves
+                                                    <label for="borderInput" class="form-label">Hives
                                                         Distribution</label>
                                                 </div>
                                             </div>

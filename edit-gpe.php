@@ -43,9 +43,6 @@ if (strlen($_SESSION['login']) == 0) {
         display: none;
     }
 
-
-
-
     input[type="range"] {
         width: 100%;
         margin-top: 10px;

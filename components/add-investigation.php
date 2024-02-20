@@ -4,10 +4,10 @@ include('../layout/config.php');
 session_start();
 
 if (isset($_POST['submit'])) {
-    $cbc = $_POST["cbc"];
+
     $hb = $_POST["hb"];
     $tc = $_POST["tc"];
-    $dc = $_POST["dc"];
+
     $neutrophils = $_POST["neutrophils"];
     $eosinophil = $_POST["eosinophil"];
     $lymphocytes = $_POST["lymphocytes"];
@@ -17,6 +17,7 @@ if (isset($_POST['submit'])) {
     $serum_creatinine = $_POST["serum_creatinine"];
     $serumig = $_POST["serumig"];
     $clevel = $_POST["clevel"];
+    $clevel4 = $_POST['clevel4'];
     $ana = $_POST["ana"];
     $urine_routine = $_POST["urine_routine"];
     $allergy_panel = $_POST["allergy_panel"];
@@ -25,9 +26,9 @@ if (isset($_POST['submit'])) {
     $centerCode = $_SESSION['centerCode'];
     $patient_id = intval($_GET['pid']);
 
-    $query = mysqli_query($conn, "Insert into tbl_investigation (cbc, hb, tc, dc, neutrophils, eosinophil, lymphocytes, monocytes, platelets, esr, serum_creatinine, serumig, clevel, ana, urine_routine, allergy_panel, centerCode, centerName, patient_id, updatedBy )
+    $query = mysqli_query($conn, "Insert into tbl_investigation ( hb, tc,  neutrophils, eosinophil, lymphocytes, monocytes, platelets, esr, serum_creatinine, serumig, clevel,clevel4, ana, urine_routine, allergy_panel, centerCode, centerName, patient_id, updatedBy )
         
-    values('$cbc','$hb','$tc','$dc','$neutrophils','$eosinophil','$lymphocytes','$monocytes','$platelets','$esr','$serum_creatinine','$serumig','$clevel','$ana','$urine_routine','$allergy_panel','$centerCode','$centerName','$patient_id','$updatedBy')");
+    values('$hb','$tc','$neutrophils','$eosinophil','$lymphocytes','$monocytes','$platelets','$esr','$serum_creatinine','$serumig','$clevel','$clevel4','$ana','$urine_routine','$allergy_panel','$centerCode','$centerName','$patient_id','$updatedBy')");
 
 
     if ($query) {

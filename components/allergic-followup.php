@@ -22,12 +22,7 @@ if (isset($_POST['submit'])) {
     $medicationns = $_POST['medicationns'];
     $antihistamine = $_POST['antihistamine'];
     $othermedication = $_POST['othermedication'];
-    $weight = $_POST['weight'];
-    $pulse = $_POST['pulse'];
-    $bp = $_POST['bp'];
-    $rr = $_POST['rr'];
-    $temp = $_POST['temp'];
-    $spo = $_POST['spo'];
+
     $ent = $_POST['ent'];
     $cns = $_POST['cns'];
     $cvs = $_POST['cvs'];
@@ -41,9 +36,9 @@ if (isset($_POST['submit'])) {
     $centerCode = $_SESSION['centerCode'];
     $patient_id = intval($_GET['pid']);
 
-    $query = mysqli_query($conn, "Insert into tbl_allergic_rhinitis (sneezing,rnose,congestion,itchynose,pns,tns,eyesymptoms,throatsymptoms,chronic,earsymptoms,headache,mental,tnns,quality,nnsymptoms,medicationns,antihistamine,othermedication,weight,pulse,bp,rr,temp,spo,ent,cns,cvs,rs,pa,drugadverse,drugcomp,advise,centerCode,centerName,patient_id,updatedBy)
+    $query = mysqli_query($conn, "Insert into tbl_allergic_rhinitis (sneezing,rnose,congestion,itchynose,pns,tns,eyesymptoms,throatsymptoms,chronic,earsymptoms,headache,mental,tnns,quality,nnsymptoms,medicationns,antihistamine,othermedication,ent,centerCode,centerName,patient_id,updatedBy)
         
-    values('$sneezing','$rnose','$congestion','$itchynose','$pns','$tns','$eyesymptoms','$throatsymptoms','$chronic','$earsymptoms','$headache','$mental','$tnns','$quality','$nnsymptoms','$medicationns','$antihistamine','$othermedication','$weight','$pulse','$bp','$rr','$temp','$spo','$ent','$cns','$cvs','$rs','$pa','$drugadverse','$drugcomp','$advise','$centerCode','$centerName','$patient_id','$updatedBy')");
+    values('$sneezing','$rnose','$congestion','$itchynose','$pns','$tns','$eyesymptoms','$throatsymptoms','$chronic','$earsymptoms','$headache','$mental','$tnns','$quality','$nnsymptoms','$medicationns','$antihistamine','$othermedication','$ent', '$centerCode','$centerName','$patient_id','$updatedBy')");
 
 
     if ($query) {
@@ -73,20 +68,7 @@ if (isset($_POST['updated'])) {
     $medicationns = $_POST['medicationns'];
     $antihistamine = $_POST['antihistamine'];
     $othermedication = $_POST['othermedication'];
-    $weight = $_POST['weight'];
-    $pulse = $_POST['pulse'];
-    $bp = $_POST['bp'];
-    $rr = $_POST['rr'];
-    $temp = $_POST['temp'];
-    $spo = $_POST['spo'];
     $ent = $_POST['ent'];
-    $cns = $_POST['cns'];
-    $cvs = $_POST['cvs'];
-    $rs = $_POST['rs'];
-    $pa = $_POST['pa'];
-    $drugadverse = $_POST['drugadverse'];
-    $drugcomp = $_POST['drugcomp'];
-    $advise = $_POST['advise'];
     $updatedBy = $_SESSION['adminName'];
     $centerName = $_SESSION['centerName'];
     $centerCode = $_SESSION['centerCode'];
@@ -94,9 +76,7 @@ if (isset($_POST['updated'])) {
 
     $query = mysqli_query($conn, "UPDATE tbl_allergic_rhinitis SET sneezing = '$sneezing', rnose='$rnose', congestion='$congestion', itchynose='$itchynose', pns='$pns',tns='$tns',eyesymptoms='$eyesymptoms',throatsymptoms='$throatsymptoms',
     chronic='$chronic',earsymptoms='$earsymptoms',headache='$headache',mental='$mental',tnns='$tnns',quality = '$quality',nnsymptoms= '$nnsymptoms',medicationns = '$medicationns',
-    antihistamine='$antihistamine',othermedication='$othermedication',weight='$weight',pulse='$pulse',bp='$bp',
-    rr='$rr',temp='$temp',spo='$spo',ent='$ent',cns='$cns',cvs='$cvs',rs='$rs',pa='$pa',drugadverse='$drugadverse',
-    drugcomp = '$drugcomp',advise = '$advise' where id = '$p_id'");
+    antihistamine='$antihistamine',othermedication='$othermedication',ent='$ent' where id = '$p_id'");
 
 
     if ($query) {

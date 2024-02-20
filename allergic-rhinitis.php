@@ -290,69 +290,6 @@ if (strlen($_SESSION['login']) == 0) {
                                             <!-- col start -->
                                             <div class="col-xxl-12 col-md-12">
                                                 <div>
-                                                    <h4>GPE</h4>
-                                                    <!-- <input type="text" class="form-control"> -->
-                                                </div>
-                                            </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="drug_name" class="form-label">Weight
-                                                    </label>
-                                                    <input type="text" class="form-control" name="weight">
-                                                </div>
-                                            </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="drug_name" class="form-label">Pulse
-                                                    </label>
-                                                    <input type="text" class="form-control" name="pulse">
-                                                </div>
-                                            </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="drug_name" class="form-label">Bp
-                                                    </label>
-                                                    <input type="text" class="form-control" name="bp">
-                                                </div>
-                                            </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="drug_name" class="form-label">RR
-                                                    </label>
-                                                    <input type="text" class="form-control" name="rr">
-                                                </div>
-                                            </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="drug_name" class="form-label">Temp
-                                                    </label>
-                                                    <input type="text" class="form-control" name="temp">
-                                                </div>
-                                            </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="drug_name" class="form-label">SPO<sub>2</sub>%
-                                                    </label>
-                                                    <input type="text" class="form-control" name="spo">
-                                                </div>
-                                            </div>
-                                            <!-- col end -->
-
-
-                                            <div class="col-xxl-12 col-md-12">
-                                                <div>
 
                                                 </div>
                                             </div>
@@ -366,13 +303,11 @@ if (strlen($_SESSION['login']) == 0) {
                                                 </div>
                                             </div>
                                             <!-- col end -->
-                                            <div class="col-xxl-12 col-md-12">
+                                            <!-- <div class="col-xxl-12 col-md-12">
                                                 <div>
                                                     <h4>Systematic Examination</h4>
                                                 </div>
                                             </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
                                             <div class="col-xxl-3 col-md-6">
                                                 <div>
                                                     <label for="drug_name" class="form-label">CNS
@@ -380,8 +315,6 @@ if (strlen($_SESSION['login']) == 0) {
                                                     <input type="text" class="form-control" name="cns">
                                                 </div>
                                             </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
                                             <div class="col-xxl-3 col-md-6">
                                                 <div>
                                                     <label for="drug_name" class="form-label">CVS
@@ -389,8 +322,6 @@ if (strlen($_SESSION['login']) == 0) {
                                                     <input type="text" class="form-control" name="cvs">
                                                 </div>
                                             </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
                                             <div class="col-xxl-3 col-md-6">
                                                 <div>
                                                     <label for="drug_name" class="form-label">RS
@@ -398,8 +329,6 @@ if (strlen($_SESSION['login']) == 0) {
                                                     <input type="text" class="form-control" name="rs">
                                                 </div>
                                             </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
                                             <div class="col-xxl-3 col-md-6">
                                                 <div>
                                                     <label for="drug_name" class="form-label">P/A
@@ -407,17 +336,13 @@ if (strlen($_SESSION['login']) == 0) {
                                                     <input type="text" class="form-control" name="pa">
                                                 </div>
                                             </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
                                             <div class="col-xxl-3 col-md-6">
                                                 <div>
-                                                    <label for="drug_name" class="form-label">Drug Adverse Notion
+                                                    <label for="drug_name" class="form-label">Drug Adverse reactions
                                                     </label>
                                                     <input type="text" class="form-control" name="drugadverse">
                                                 </div>
                                             </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
                                             <div class="col-xxl-3 col-md-6">
                                                 <div>
                                                     <label for="drug_name" class="form-label">Drug Compliance
@@ -425,8 +350,6 @@ if (strlen($_SESSION['login']) == 0) {
                                                     <input type="text" class="form-control" name="drugcomp">
                                                 </div>
                                             </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
                                             <div class="col-xxl-3 col-md-6">
                                                 <div>
                                                     <label for="drug_name" class="form-label">Advise to be followed up
@@ -434,7 +357,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                     </label>
                                                     <input type="text" class="form-control" name="advise">
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <!-- col end -->
                                             <!-- ========================= Investigations ============================= -->
                                             <div class="col-xxl-12 col-md-12 text-center">

@@ -86,26 +86,23 @@ if (strlen($_SESSION['login']) == 0) {
         <!-- Start right Content here -->
         <!-- ============================================================== -->
         <div class="main-content">
-
             <div class="page-content">
                 <div class="container-fluid">
-
                     <div class="row">
                         <div class="col">
-
                             <div class="h-100">
                                 <div class="row mb-3 pb-1">
                                     <div class="col-12">
                                         <div class="d-flex align-items-lg-center flex-lg-row flex-column">
                                             <div class="flex-grow-1">
                                                 <h4 class="fs-16 mb-1">Good Morning,
-                                                    <?php echo $_SESSION['adminName']; ?>
+                                                    <?php echo $_SESSION['empName']; ?>
                                                 </h4>
                                                 <!-- <p class="text-muted mb-0">Here's what's happening with your store
                                                     today.</p> -->
                                             </div>
                                             <div class="mt-3 mt-lg-0">
-                                                <form action="javascript:void(0);">
+                                                <!-- <form action="javascript:void(0);">
                                                     <div class="row g-3 mb-0 align-items-center">
                                                         <div class="col-sm-auto">
                                                             <div class="input-group">
@@ -120,37 +117,30 @@ if (strlen($_SESSION['login']) == 0) {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!--end col-->
+                                                        
                                                         <div class="col-auto">
                                                             <button type="button" class="btn btn-soft-success"><i
                                                                     class="ri-add-circle-line align-middle me-1"></i>
                                                                 Add Product</button>
                                                         </div>
-                                                        <!--end col-->
+                                                     
                                                         <div class="col-auto">
                                                             <button type="button"
                                                                 class="btn btn-soft-info btn-icon waves-effect waves-light layout-rightside-btn"><i
                                                                     class="ri-pulse-line"></i></button>
                                                         </div>
-                                                        <!--end col-->
+                                                     
                                                     </div>
-                                                    <!--end row-->
-                                                </form>
+                                                    
+                                                </form> -->
                                             </div>
                                         </div><!-- end card header -->
                                     </div>
                                     <!--end col-->
                                 </div>
                                 <!--end row-->
-
-
-
-
-
                             </div> <!-- end .h-100-->
-
                         </div> <!-- end col -->
-
                         <div class="col-auto layout-rightside-col">
                             <div class="overlay"></div>
                             <div class="layout-rightside">
@@ -656,12 +646,10 @@ if (strlen($_SESSION['login']) == 0) {
 
                         </div> <!-- end col -->
                     </div>
-
                 </div>
                 <!-- container-fluid -->
             </div>
             <!-- End Page-content -->
-
             <footer class="footer">
                 <div class="container-fluid">
                     <div class="row">
@@ -672,7 +660,7 @@ if (strlen($_SESSION['login']) == 0) {
                         </div>
                         <div class="col-sm-6">
                             <div class="text-sm-end d-none d-sm-block">
-                                Design & Develop by Themesbrand
+
                             </div>
                         </div>
                     </div>
@@ -680,18 +668,13 @@ if (strlen($_SESSION['login']) == 0) {
             </footer>
         </div>
         <!-- end main content-->
-
     </div>
     <!-- END layout-wrapper -->
-
-
-
     <!--start back-to-top-->
     <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
         <i class="ri-arrow-up-line"></i>
     </button>
     <!--end back-to-top-->
-
     <!--preloader-->
     <div id="preloader">
         <div id="status">
@@ -700,17 +683,13 @@ if (strlen($_SESSION['login']) == 0) {
             </div>
         </div>
     </div>
-
     <div class="customizer-setting d-none d-md-block">
         <div class="btn-info rounded-pill shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas"
             data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
             <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
         </div>
     </div>
-
     <!-- Theme Settings -->
-
-
     <!-- JAVASCRIPT -->
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/libs/simplebar/simplebar.min.js"></script>
@@ -718,20 +697,15 @@ if (strlen($_SESSION['login']) == 0) {
     <script src="assets/libs/feather-icons/feather.min.js"></script>
     <script src="assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
     <script src="assets/js/plugins.js"></script>
-
     <!-- apexcharts -->
     <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
-
     <!-- Vector map-->
     <script src="assets/libs/jsvectormap/js/jsvectormap.min.js"></script>
     <script src="assets/libs/jsvectormap/maps/world-merc.js"></script>
-
     <!--Swiper slider js-->
     <script src="assets/libs/swiper/swiper-bundle.min.js"></script>
-
     <!-- Dashboard init -->
     <script src="assets/js/pages/dashboard-ecommerce.init.js"></script>
-
     <!-- App js -->
     <script src="assets/js/app.js"></script>
 </body>

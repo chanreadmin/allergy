@@ -12,7 +12,6 @@ if (strlen($_SESSION['login']) == 0) {
     data-sidebar-image="none" data-preloader="disable">
 
 <head>
-
     <meta charset="utf-8" />
     <title>Admin Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,12 +48,9 @@ if (strlen($_SESSION['login']) == 0) {
 </head>
 
 <body>
-
     <!-- Begin page -->
     <div id="layout-wrapper">
-
         <?php include('admin/header.php') ?>
-
         <!-- removeNotificationModal -->
         <div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -78,7 +74,6 @@ if (strlen($_SESSION['login']) == 0) {
                                 It!</button>
                         </div>
                     </div>
-
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
@@ -94,35 +89,29 @@ if (strlen($_SESSION['login']) == 0) {
         <!-- Start right Content here -->
         <!-- ============================================================== -->
         <div class="main-content">
-
             <div class="page-content">
                 <div class="container-fluid">
-
                     <!-- start page title -->
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                                 <h4 class="mb-sm-0">Add Patient</h4>
-
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
                                         <li class="breadcrumb-item active">Add Patient</li>
                                     </ol>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                     <!-- end page title -->
-
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header align-items-center d-flex">
                                     <h4 class="card-title mb-0 flex-grow-1">Add Patient</h4>
                                     <div class="flex-shrink-0">
-
                                     </div>
                                 </div>
                                 <div class="card-body">
@@ -162,11 +151,21 @@ if (strlen($_SESSION['login']) == 0) {
                                                 <div>
                                                     <label for="physician" class="form-label">Referring
                                                         physician</label>
-                                                    <input type="text" class="form-control" id="physician"
-                                                        name="physician" placeholder="Enter Physician name" required>
+                                                    <select class="form-control" id="physician" name="physician">
+                                                        <option value="">Select Doctor</option>
+                                                        <?php
+                                                            $centerCode = $_SESSION['centerCode'];
+                                                            $querys = mysqli_query($conn, "SELECT * from tbl_staff WHERE centerCode= '$centerCode' AND empDesignation = 'Doctor'");
+                                                            while ($rows = mysqli_fetch_array($querys)) {
+                                                                ?>
+                                                        <option
+                                                            value="<?php echo htmlentities($rows['empUsername']) ?>">
+                                                            <?php echo htmlentities($rows['empName']) ?>
+                                                        </option>
+                                                        <?php } ?>
+                                                    </select>
                                                 </div>
                                             </div>
-
                                             <div class="col-xxl-3 col-md-6">
                                                 <div>
                                                     <label for="address" class="form-label">Address</label>

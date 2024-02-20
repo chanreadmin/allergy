@@ -7,13 +7,11 @@ if (strlen($_SESSION['login']) == 0) {
 } else {
     $pid = intval($_GET['pid']);
     ?>
-
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg"
     data-sidebar-image="none" data-preloader="disable">
 
 <head>
-
     <meta charset="utf-8" />
     <title>Admin Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,10 +22,8 @@ if (strlen($_SESSION['login']) == 0) {
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <!-- jsvectormap css -->
     <link href="assets/libs/jsvectormap/css/jsvectormap.min.css" rel="stylesheet" type="text/css" />
-
     <!--Swiper slider css-->
     <link href="assets/libs/swiper/swiper-bundle.min.css" rel="stylesheet" type="text/css" />
-
     <!-- Layout config Js -->
     <script src="assets/js/layout.js"></script>
     <!-- Bootstrap Css -->
@@ -43,9 +39,6 @@ if (strlen($_SESSION['login']) == 0) {
         display: none;
     }
 
-
-
-
     input[type="range"] {
         width: 100%;
         margin-top: 10px;
@@ -54,27 +47,18 @@ if (strlen($_SESSION['login']) == 0) {
 </head>
 
 <body>
-
     <!-- Begin page -->
     <div id="layout-wrapper">
 
-        <?php include('admin/header.php') ?>
-
-        <!-- removeNotificationModal -->
-
-        <!-- ========== App Menu ========== -->
-        <?php
-            include('admin/leftsidebar.php')
-                ?>
+        <?php include('admin/header.php'); ?>
+        <?php include('admin/leftsidebar.php'); ?>
         <!-- Left Sidebar End -->
         <!-- Vertical Overlay-->
         <div class="vertical-overlay"></div>
-
         <!-- ============================================================== -->
         <!-- Start right Content here -->
         <!-- ============================================================== -->
         <div class="main-content">
-
             <div class="page-content">
                 <div class="container-fluid">
                     <!-- start page title -->
@@ -92,14 +76,12 @@ if (strlen($_SESSION['login']) == 0) {
                         </div>
                     </div>
                     <!-- end page title -->
-
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header align-items-center d-flex">
                                     <h4 class="card-title mb-0 flex-grow-1">GPE</h4>
                                     <div class="flex-shrink-0">
-
                                     </div>
                                 </div>
                                 <div class="card-body">
@@ -110,14 +92,9 @@ if (strlen($_SESSION['login']) == 0) {
                                             $myquery = mysqli_query($conn, "SELECT *
                                                     FROM patients INNER JOIN tbl_gpe ON patients.patient_id = tbl_gpe.patient_id Where tbl_gpe.updatedBy = '$users' AND tbl_gpe.id = '$sid'");
                                             while ($rows = mysqli_fetch_array($myquery)) {
-
                                                 ?>
-
-
                                         <form action="components/gpe-data.php?pid=<?php echo $pid; ?>" method="post"
                                             enctype="multipart/form-data" class="row gy-4">
-
-
                                             <!-- col end -->
                                             <!-- col start -->
                                             <div class="col-xxl-12 col-md-12">
@@ -132,7 +109,6 @@ if (strlen($_SESSION['login']) == 0) {
                                                 <div>
                                                     <label for="drug_name" class="form-label">Weight
                                                     </label>
-
                                                     <input readonly type="text" class="form-control"
                                                         value="<?php echo htmlentities($rows['weights']); ?>"
                                                         name="weights">
@@ -194,8 +170,6 @@ if (strlen($_SESSION['login']) == 0) {
                                                 </div>
                                             </div>
                                             <!-- col end -->
-
-
                                             <div class="col-xxl-12 col-md-12">
                                                 <div>
 
@@ -226,7 +200,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                     </label>
                                                     <input readonly type="text"
                                                         value="<?php echo htmlentities($rows['cns']); ?>"
-                                                        class="form-control" name="cns">
+                                                        class=" form-control" name="cns">
                                                 </div>
                                             </div>
                                             <!-- col end -->
@@ -237,7 +211,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                     </label>
                                                     <input readonly type="text"
                                                         value="<?php echo htmlentities($rows['cvs']); ?>"
-                                                        class="form-control" name="cvs">
+                                                        class=" form-control" name="cvs">
                                                 </div>
                                             </div>
                                             <!-- col end -->
@@ -248,7 +222,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                     </label>
                                                     <input readonly type="text"
                                                         value="<?php echo htmlentities($rows['rs']); ?>"
-                                                        class="form-control" name="rs">
+                                                        class=" form-control" name="rs">
                                                 </div>
                                             </div>
                                             <!-- col end -->
@@ -259,7 +233,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                     </label>
                                                     <input readonly type="text"
                                                         value="<?php echo htmlentities($rows['pa']); ?>"
-                                                        class="form-control" name="pa">
+                                                        class=" form-control" name="pa">
                                                 </div>
                                             </div>
                                             <!-- col end -->
@@ -270,7 +244,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                     </label>
                                                     <input readonly type="text"
                                                         value="<?php echo htmlentities($rows['drugadverse']); ?>"
-                                                        class="form-control" name="drugadverse">
+                                                        class=" form-control" name="drugadverse">
                                                 </div>
                                             </div>
                                             <!-- col end -->
@@ -281,7 +255,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                     </label>
                                                     <input readonly type="text"
                                                         value="<?php echo htmlentities($rows['drugcomp']); ?>"
-                                                        class="form-control" name="drugcomp">
+                                                        class=" form-control" name="drugcomp">
                                                 </div>
                                             </div>
                                             <!-- col end -->
@@ -293,7 +267,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                     </label>
                                                     <input readonly type="text"
                                                         value="<?php echo htmlentities($rows['advise']); ?>"
-                                                        class="form-control" name="advise">
+                                                        class=" form-control" name="advise">
                                                 </div>
                                             </div>
                                             <!-- col end -->
@@ -304,7 +278,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                     </label>
                                                     <input readonly type="text" class="form-control"
                                                         value="<?php echo htmlentities($rows['eyemed']); ?>"
-                                                        name="eyemed">
+                                                        name=" eyemed">
                                                 </div>
                                             </div>
                                             <!-- col end -->
@@ -313,10 +287,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                 <button class="btn btn-primary " name="submit"
                                                     type="submit">Submit</button>
                                             </div> -->
-
-
                                         </form>
-
                                         <?php } ?>
                                         <!--end row-->
                                     </div>
@@ -383,9 +354,6 @@ if (strlen($_SESSION['login']) == 0) {
     <!-- App js -->
     <script src="assets/js/app.js"></script>
     <script src="assets/js/formhandler.js"></script>
-
-
-
 </body>
 
 </html>

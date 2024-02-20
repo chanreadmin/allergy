@@ -50,10 +50,6 @@ if (strlen($_SESSION['login']) == 0) {
         width: 100%;
         margin-top: 10px;
     }
-
-    /* #sliderValue {
-                                                                                                                                                                                                                                                                                                                                                                                                                        margin-top: 10px;
-                                                                                                                                                                                                                                                                                                                                                                                                                    } */
     </style>
 </head>
 
@@ -353,72 +349,7 @@ if (strlen($_SESSION['login']) == 0) {
                                             </div>
                                             <!-- col end -->
                                             <!-- col start -->
-                                            <div class="col-xxl-12 col-md-12">
-                                                <div>
-                                                    <h4>GPE</h4>
-                                                    <!-- <input type="text" class="form-control"> -->
-                                                </div>
-                                            </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="drug_name" class="form-label">Weight
-                                                    </label>
-                                                    <input type="text" class="form-control" name="weight"
-                                                        value="<?php echo $rows['weight']; ?>">
-                                                </div>
-                                            </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="drug_name" class="form-label">Pulse
-                                                    </label>
-                                                    <input type="text" class="form-control" name="pulse"
-                                                        value="<?php echo $rows['pulse']; ?>">
-                                                </div>
-                                            </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="drug_name" class="form-label">Bp
-                                                    </label>
-                                                    <input type="text" class="form-control" name="bp"
-                                                        value="<?php echo $rows['bp']; ?>">
-                                                </div>
-                                            </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="drug_name" class="form-label">RR
-                                                    </label>
-                                                    <input type="text" class="form-control" name="rr"
-                                                        value="<?php echo $rows['rr']; ?>">
-                                                </div>
-                                            </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="drug_name" class="form-label">Temp
-                                                    </label>
-                                                    <input type="text" class="form-control" name="temp"
-                                                        value="<?php echo $rows['temp']; ?>">
-                                                </div>
-                                            </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="drug_name" class="form-label">SPO2%
-                                                    </label>
-                                                    <input type="text" class="form-control" name="spo"
-                                                        value="<?php echo $rows['spo']; ?>">
-                                                </div>
-                                            </div>
+
                                             <!-- col end -->
 
 
@@ -438,83 +369,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                 </div>
                                             </div>
                                             <!-- col end -->
-                                            <div class="col-xxl-12 col-md-12">
-                                                <div>
-                                                    <h4>Systematic Examination</h4>
-                                                </div>
-                                            </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="drug_name" class="form-label">CNS
-                                                    </label>
-                                                    <input type="text" class="form-control" name="cns"
-                                                        value="<?php echo $rows['cns']; ?>">
-                                                </div>
-                                            </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="drug_name" class="form-label">CVS
-                                                    </label>
-                                                    <input type="text" class="form-control" name="cvs"
-                                                        value="<?php echo $rows['cvs']; ?>">
-                                                </div>
-                                            </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="drug_name" class="form-label">RS
-                                                    </label>
-                                                    <input type="text" class="form-control" name="rs"
-                                                        value="<?php echo $rows['rs']; ?>">
-                                                </div>
-                                            </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="drug_name" class="form-label">P/A
-                                                    </label>
-                                                    <input type="text" class="form-control" name="pa"
-                                                        value="<?php echo $rows['pa']; ?>">
-                                                </div>
-                                            </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="drug_name" class="form-label">Drug Adverse Notion
-                                                    </label>
-                                                    <input type="text" class="form-control" name="drugadverse"
-                                                        value="<?php echo $rows['drugadverse']; ?>">
-                                                </div>
-                                            </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="drug_name" class="form-label">Drug Compliance
-                                                    </label>
-                                                    <input type="text" class="form-control" name="drugcomp"
-                                                        value="<?php echo $rows['drugcomp']; ?>">
-                                                </div>
-                                            </div>
-                                            <!-- col end -->
-                                            <!-- col start -->
-                                            <div class="col-xxl-3 col-md-6">
-                                                <div>
-                                                    <label for="drug_name" class="form-label">Advise to be followed up
-                                                        till next visit
-                                                    </label>
-                                                    <input type="text" class="form-control" name="advise"
-                                                        value="<?php echo $rows['advise']; ?>">
-                                                </div>
-                                            </div>
-                                            <!-- col end -->
+
                                             <!-- ========================= Investigations ============================= -->
                                             <!-- <div class="col-xxl-12 col-md-12 text-center">
                                                 <button class="btn btn-primary " name="submit"

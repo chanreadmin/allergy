@@ -220,13 +220,11 @@ if (strlen($_SESSION['login']) == 0) {
                                                     </tbody>
                                                 </table>
                                             </div>
-
                                             <div class="col-xxl-12 col-md-12">
                                                 <div>
                                                     <h4>Grading based on PFT</h4>
                                                 </div>
                                             </div>
-
                                             <div class="col-xxl-12 col-md-12">
                                                 <table id="myTable" class="table table-strip">
                                                     <thead>
@@ -271,6 +269,14 @@ if (strlen($_SESSION['login']) == 0) {
                                                     <input type="radio" name="habits" id="habits" value="Non Smoker"
                                                         <?= $row['habits'] == 'Non Smoker' ? "checked" : '' ?>> Non
                                                     Smoker
+                                                </div>
+                                            </div>
+                                            <div class="col-xxl-6 col-md-6">
+                                                <div>
+                                                    <label for="othermedications" class="form-label">Respiratory
+                                                        system Examination</label>
+                                                    <textarea class="form-control" name="resexam"
+                                                        id="resexam"><?php echo htmlentities($row['resexam']); ?></textarea>
                                                 </div>
                                             </div>
                                             <!-- ========================= Investigations ============================= -->
