@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('layout/config.php');
+include ('layout/config.php');
 error_reporting(0);
 if (strlen($_SESSION['login']) == 0) {
     header('location:index.php');
@@ -42,8 +42,8 @@ if (strlen($_SESSION['login']) == 0) {
 <body>
     <!-- Begin page -->
     <div id="layout-wrapper">
-        <?php include('admin/header.php') ?>
-        <?php include('admin/leftsidebar.php') ?>
+        <?php include ('admin/header.php') ?>
+        <?php include ('admin/leftsidebar.php') ?>
         <!-- Left Sidebar End -->
         <!-- Vertical Overlay-->
         <div class="vertical-overlay"></div>
@@ -109,9 +109,10 @@ if (strlen($_SESSION['login']) == 0) {
                                                     </div>
                                                     <div class="mb-3 col-xxl-4 col-md-6">
                                                         <label for="username" class="form-label"> KMC No <span
-                                                                class="text-danger">*</span></label>
+                                                                class="text-danger">(Mandatory for
+                                                                doctor)</span></label>
                                                         <input type="text" class="form-control" name="empkmc"
-                                                            id="empkmc" placeholder="Enter KMC No" required>
+                                                            id="empkmc" placeholder="Enter KMC No">
                                                         <div class="invalid-feedback">
                                                             Please enter designation
                                                         </div>
@@ -232,7 +233,7 @@ if (strlen($_SESSION['login']) == 0) {
                     <!--end row-->
                 </div> <!-- container-fluid -->
             </div><!-- End Page-content -->
-            <?php include('admin/footer.php') ?>
+            <?php include ('admin/footer.php') ?>
         </div>
         <!-- end main content-->
     </div>

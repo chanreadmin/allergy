@@ -158,8 +158,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                             $querys = mysqli_query($conn, "SELECT * from tbl_users WHERE centerCode= '$centerCode' AND usertype = '2'");
                                                             while ($rows = mysqli_fetch_array($querys)) {
                                                                 ?>
-                                                        <option
-                                                            value="<?php echo htmlentities($rows['center_username']) ?>">
+                                                        <option value="<?php echo htmlentities($rows['empName']) ?>">
                                                             <?php echo htmlentities($rows['empName']) ?>
                                                         </option>
                                                         <?php } ?>
@@ -186,20 +185,10 @@ if (strlen($_SESSION['login']) == 0) {
                                                 <div>
                                                     <label for="" class="form-label">Email </label>
                                                     <input type="text" placeholder="Enter email address"
-                                                        class="form-control" id="email" name="email" required>
+                                                        class="form-control" id="email" name="email">
                                                 </div>
                                             </div>
                                             <!--end col-->
-                                            <!--end col-->
-                                            <!-- <div class="col-xxl-3 col-md-6">
-                                                    <div>
-                                                        <label for="" class="form-label">Patient Id </label>
-                                                        <input type="text" placeholder="Enter patient id"
-                                                            class="form-control" id="patient_id" name="patient_id" required>
-                                                    </div>
-                                                </div> -->
-                                            <!--end col-->
-
                                             <!-- ========================= Investigations ============================= -->
                                             <div class="col-xxl-12 col-md-12 text-center">
                                                 <button class="btn btn-primary " name="submit"
