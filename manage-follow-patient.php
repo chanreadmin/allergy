@@ -87,12 +87,10 @@ if (strlen($_SESSION['login']) == 0) {
                                             <thead>
                                                 <tr>
                                                     <th>Patient Name</th>
-
                                                     <th>Center Code</th>
                                                     <!-- <th>Contact</th> -->
                                                     <th>Registered date</th>
                                                     <th>Action</th>
-
                                                 </tr>
                                             </thead>
                                             <tbody>

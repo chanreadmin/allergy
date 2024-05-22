@@ -1,20 +1,24 @@
 <?php
 session_start();
-include('layout/config.php');
+include ('layout/config.php');
 error_reporting(0);
 if (strlen($_SESSION['login']) == 0) {
     header('location:index.php');
 } else {
-
-    if ($_GET['action'] = 'del') {
-        $postid = intval($_GET['pid']);
-        $query = mysqli_query($conn, "delete from  tbl_center  where id='$postid'");
-        if ($query) {
-            $msg = "Hospital deleted ";
-        } else {
-            $error = "Something went wrong . Please try again.";
+    /*
+        if ($_GET['action'] = 'del') {
+            $postid = intval($_GET['pid']);
+            $query = mysqli_query($conn, "delete from  tbl_center  where id='$postid'");
+            if($query) 
+            {
+                $msg = "Hospital deleted ";
+            } 
+            else 
+            {
+                $error = "Something went wrong . Please try again.";
+            }
         }
-    }
+        */
     ?>
 
 <!doctype html>
@@ -57,10 +61,10 @@ if (strlen($_SESSION['login']) == 0) {
     <!-- Begin page -->
     <div id="layout-wrapper">
 
-        <?php include('admin/header.php') ?>
+        <?php include ('admin/header.php') ?>
 
         <!-- ========== App Menu ========== -->
-        <?php include('admin/leftsidebar.php') ?>
+        <?php include ('admin/leftsidebar.php') ?>
         <!-- Left Sidebar End -->
         <!-- Vertical Overlay-->
         <div class="vertical-overlay"></div>
@@ -91,12 +95,6 @@ if (strlen($_SESSION['login']) == 0) {
                     </div>
                     <!-- end page title -->
 
-                    <!-- <div class="alert alert-danger" role="alert">
-                        This is <strong>Datatable</strong> page in wihch we have used <b>jQuery</b> with cnd link!
-                    </div> -->
-
-
-
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
@@ -110,22 +108,29 @@ if (strlen($_SESSION['login']) == 0) {
                                             style="width:100%">
                                             <thead>
                                                 <tr>
+                                                    <th>ID</th>
                                                     <th>Patient Name</th>
                                                     <th>Age</th>
                                                     <th>Center Code</th>
                                                     <th>Contact</th>
-                                                    <th>Registered date</th>
+                                                    <th>Doctor</th>
+
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
                                                     $users = $_SESSION['login'];
-                                                    $myquery = mysqli_query($conn, "Select * from patients WHERE updatedBy ='$users' ");
+                                                    $c_code = $_SESSION['centerCode'];
+                                                    $physician = $_SESSION['login'];
+                                                    $myquery = mysqli_query($conn, "Select * from patients WHERE physician= '$physician' OR (updatedBy ='$users' AND centerCode = '$c_code') ");
                                                     while ($row = mysqli_fetch_array($myquery)) {
 
                                                         ?>
                                                 <tr>
+                                                    <td>
+                                                        <?php echo htmlentities($row['patient_id']) ?>
+                                                    </td>
                                                     <td>
                                                         <?php echo htmlentities($row['patient_name']) ?>
                                                     </td>
@@ -139,7 +144,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                         <?php echo htmlentities($row['mobile']) ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo htmlentities($row['createdAt']) ?>
+                                                        <?php echo htmlentities($row['physician']) ?>
                                                     </td>
                                                     <td>
                                                         <a href="patient-details.php?pid=<?php echo htmlentities($row['patient_id']) ?>"
@@ -149,12 +154,10 @@ if (strlen($_SESSION['login']) == 0) {
                                                             href="view-investigation.php?pid=<?php echo htmlentities($row['patient_id']) ?>">View
                                                             Investigation</a>
                                                         |
-                                                        <a href="view-medication.php?pid=<?php echo htmlentities($row['patient_id']) ?>"
-                                                            class="btn btn-warning btn-sm">View Medication</a>|
+
                                                         <a href="patient-profile.php?pid=<?php echo htmlentities($row['patient_id']) ?>"
                                                             class="btn btn-success btn-sm">View Profile
                                                     </td>
-
                                                 </tr>
                                                 <?php } ?>
                                         </table>
@@ -174,7 +177,7 @@ if (strlen($_SESSION['login']) == 0) {
             </div>
             <!-- End Page-content -->
 
-            <?php include('admin/footer.php'); ?>
+            <?php include ('admin/footer.php'); ?>
         </div>
         <!-- end main content-->
 

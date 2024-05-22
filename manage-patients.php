@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('layout/config.php');
+include ('layout/config.php');
 error_reporting(0);
 if (strlen($_SESSION['login']) == 0) {
     header('location:index.php');
@@ -57,10 +57,10 @@ if (strlen($_SESSION['login']) == 0) {
     <!-- Begin page -->
     <div id="layout-wrapper">
 
-        <?php include('admin/header.php') ?>
+        <?php include ('admin/header.php') ?>
 
         <!-- ========== App Menu ========== -->
-        <?php include('admin/leftsidebar.php') ?>
+        <?php include ('admin/leftsidebar.php') ?>
         <!-- Left Sidebar End -->
         <!-- Vertical Overlay-->
         <div class="vertical-overlay"></div>
@@ -103,11 +103,12 @@ if (strlen($_SESSION['login']) == 0) {
                                             style="width:100%">
                                             <thead>
                                                 <tr>
+                                                    <th>ID</th>
                                                     <th>Patient Name</th>
                                                     <th>Age</th>
                                                     <th>Center Code</th>
                                                     <th>Contact</th>
-                                                    <th>Registered date</th>
+                                                    <th>Doctor</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -119,6 +120,9 @@ if (strlen($_SESSION['login']) == 0) {
 
                                                         ?>
                                                 <tr>
+                                                    <td>
+                                                        <?php echo htmlentities($row['patient_id']) ?>
+                                                    </td>
                                                     <td>
                                                         <?php echo htmlentities($row['patient_name']) ?>
                                                     </td>
@@ -132,19 +136,17 @@ if (strlen($_SESSION['login']) == 0) {
                                                         <?php echo htmlentities($row['mobile']) ?>
                                                     </td>
                                                     <td>
-                                                        <?php echo htmlentities($row['createdAt']) ?>
+                                                        <?php echo htmlentities($row['physician']) ?>
                                                     </td>
                                                     <td>
                                                         <!-- <a href="edit-patient.php?hid=<?php echo htmlentities($row['centerCode']) ?>"
                                                             class="btn btn-primary">Edit</a>
                                                         | -->
-                                                        <a class="btn btn-danger btn-sm"
-                                                            href="manage-patients.php?pid=<?php echo htmlentities($row['id']); ?>&&action=del"
-                                                            onclick="return confirm('Do you realy want to delete ?')">Delete</a>
-                                                        |
-                                                        <a href="add-medication.php?pid=<?php echo htmlentities($row['patient_id']) ?>"
-                                                            class="btn btn-warning btn-sm">Add Medication</a>
-                                                        |
+
+
+                                                        <!-- <a href="add-medication.php?pid=<?php echo htmlentities($row['patient_id']) ?>"
+                                                            class="btn btn-warning btn-sm">Add Medication</a> -->
+
                                                         <a href="add-test.php?pid=<?php echo htmlentities($row['patient_id']) ?>"
                                                             class="btn btn-success btn-sm">Add Test</a>
                                                         |
@@ -173,7 +175,7 @@ if (strlen($_SESSION['login']) == 0) {
             </div>
             <!-- End Page-content -->
 
-            <?php include('admin/footer.php'); ?>
+            <?php include ('admin/footer.php'); ?>
         </div>
         <!-- end main content-->
 

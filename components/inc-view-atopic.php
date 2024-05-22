@@ -15,9 +15,6 @@
                         <tr>
                             <th>Date</th>
                             <th>symptoms</th>
-
-
-
                             <th>centerCode</th>
                             <th>centerName</th>
                             <th>patient_id</th>
@@ -38,9 +35,6 @@
                             <td>
                                 <?php echo htmlentities($row['symptoms']) ?>
                             </td>
-
-
-
                             <td>
                                 <?php echo htmlentities($row['centerCode']) ?>
                             </td>

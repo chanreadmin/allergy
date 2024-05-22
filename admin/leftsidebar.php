@@ -24,9 +24,8 @@
             <i class="ri-record-circle-line"></i>
         </button>
     </div>
-    <?php
-    if ($_SESSION['empDesignation'] == 'Doctor') {
-        echo '<div id="scrollbar">
+
+    <div id="scrollbar">
         <div class="container-fluid">
 
             <div id="two-column-menu">
@@ -34,56 +33,160 @@
             <ul class="navbar-nav" id="navbar-nav">
                 <li class="menu-title"><span data-key="t-menu">Menu</span></li>
 
-                
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarPages2" data-bs-toggle="collapse" role="button"
-                        aria-expanded="false" aria-controls="sidebarPages">
-                        <i class="ri-pages-line"></i> <span data-key="t-pages">Patient</span>
+                <?php
+                if ($_SESSION['role'] == '1') {
+                    echo "<li class='nav-item'>
+                    <a class='nav-link menu-link' href='#sidebarPages1' data-bs-toggle='collapse' role='button'
+                        aria-expanded='false' aria-controls='sidebarPages'>
+                        <i class='ri-pages-line'></i> <span data-key='t-pages'>Users</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarPages2">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="add-patient.php" class="nav-link" data-key="t-starter"> Add Patient </a>
+                    <div class='collapse menu-dropdown' id='sidebarPages1'>
+                        <ul class='nav nav-sm flex-column'>
+                            <li class='nav-item'>
+                                <a href='add-user.php' class='nav-link' data-key='t-starter'> Add User </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="view-patient.php" class="nav-link" data-key="t-team"> View Patient</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="manage-patients.php" class="nav-link" data-key="t-team"> Manage Patient</a>
+                            <li class='nav-item'>
+                                <a href='view-hospital.php' class='nav-link' data-key='t-team'> Manage User </a>
                             </li>
 
-                            <li class="nav-item">
-                                <a href="hospital-docs.php" class="nav-link" data-key="t-faqs"> Documentation </a>
+                            <li class='nav-item'>
+                                <a href='hospital-docs.php' class='nav-link' data-key='t-faqs'> Documentation </a>
                             </li>
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarPages3" data-bs-toggle="collapse" role="button"
-                        aria-expanded="false" aria-controls="sidebarPages">
-                        <i class="ri-pages-line"></i> <span data-key="t-pages">Follow Up</span>
+
+                <li class='nav-item'>
+                    <a class='nav-link menu-link' href='#sidebarPages2' data-bs-toggle='collapse' role='button'
+                        aria-expanded='false' aria-controls='sidebarPages'>
+                        <i class='ri-pages-line'></i> <span data-key='t-pages'>Patient</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarPages3">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="view-followup-patient.php" class="nav-link" data-key="t-starter"> View FollowUp
+                    <div class='collapse menu-dropdown' id='sidebarPages2'>
+                        <ul class='nav nav-sm flex-column'>
+                            <li class='nav-item'>
+                                <a href='add-patient.php' class='nav-link' data-key='t-starter'> Add Patient </a>
+                            </li>
+                            <li class='nav-item'>
+                                <a href='view-patient.php' class='nav-link' data-key='t-team'> View Patient</a>
+                            </li>
+                            <li class='nav-item'>
+                                <a href='manage-patients.php' class='nav-link' data-key='t-team'> Manage Patient</a>
+                            </li>
+
+                            <li class='nav-item'>
+                                <a href='hospital-docs.php' class='nav-link' data-key='t-faqs'> Documentation </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class='nav-item'>
+                    <a class='nav-link menu-link' href='#sidebarPages3' data-bs-toggle='collapse' role='button'
+                        aria-expanded='false' aria-controls='sidebarPages'>
+                        <i class='ri-pages-line'></i> <span data-key='t-pages'>Follow Up</span>
+                    </a>
+                    <div class='collapse menu-dropdown' id='sidebarPages3'>
+                        <ul class='nav nav-sm flex-column'>
+                            <li class='nav-item'>
+                                <a href='view-followup-patient.php' class='nav-link' data-key='t-starter'> View Follow Up
                                     Paitent</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="manage-follow-patient.php" class="nav-link" data-key="t-team"> Manage Follow
+                            <li class='nav-item'>
+                                <a href='manage-follow-patient.php' class='nav-link' data-key='t-team'> Manage Follow
                                     Up</a>
                             </li>
-                            <!-- <li class="nav-item">
-                                <a href="manage-patients.php" class="nav-link" data-key="t-team"> Manage Patient</a>
+                            <!-- <li class='nav-item'>
+                                <a href='manage-patients.php' class='nav-link' data-key='t-team'> Manage Patient</a>
                             </li> -->
 
-                            <li class="nav-item">
-                                <a href="hospital-docs.php" class="nav-link" data-key="t-faqs"> Documentation </a>
+                            <li class='nav-item'>
+                                <a href='hospital-docs.php' class='nav-link' data-key='t-faqs'> Documentation </a>
                             </li>
                         </ul>
                     </div>
                 </li>
+";
+                } else if ($_SESSION['role'] == '2') {
+                    echo "
+                <li class='nav-item'>
+                    <a class='nav-link menu-link' href='#sidebarPages2' data-bs-toggle='collapse' role='button'
+                        aria-expanded='false' aria-controls='sidebarPages'>
+                        <i class='ri-pages-line'></i> <span data-key='t-pages'>Patient</span>
+                    </a>
+                    <div class='collapse menu-dropdown' id='sidebarPages2'>
+                        <ul class='nav nav-sm flex-column'>
+                            <li class='nav-item'>
+                                <a href='add-patient.php' class='nav-link' data-key='t-starter'> Add Patient </a>
+                            </li>
+                            <li class='nav-item'>
+                                <a href='view-patient.php' class='nav-link' data-key='t-team'> View Patient</a>
+                            </li>
+                            <li class='nav-item'>
+                                <a href='manage-patients.php' class='nav-link' data-key='t-team'> Manage Patient</a>
+                            </li>
+
+                            <li class='nav-item'>
+                                <a href='hospital-docs.php' class='nav-link' data-key='t-faqs'> Documentation </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class='nav-item'>
+                    <a class='nav-link menu-link' href='#sidebarPages3' data-bs-toggle='collapse' role='button'
+                        aria-expanded='false' aria-controls='sidebarPages'>
+                        <i class='ri-pages-line'></i> <span data-key='t-pages'>Follow Up</span>
+                    </a>
+                    <div class='collapse menu-dropdown' id='sidebarPages3'>
+                        <ul class='nav nav-sm flex-column'>
+                            <li class='nav-item'>
+                                <a href='view-followup-patient.php' class='nav-link' data-key='t-starter'> View Follow Up
+                                    Paitent</a>
+                            </li>
+                            <li class='nav-item'>
+                                <a href='manage-follow-patient.php' class='nav-link' data-key='t-team'> Manage Follow
+                                    Up</a>
+                            </li>
+                            <!-- <li class='nav-item'>
+                                <a href='manage-patients.php' class='nav-link' data-key='t-team'> Manage Patient</a>
+                            </li> -->
+
+                            <li class='nav-item'>
+                                <a href='hospital-docs.php' class='nav-link' data-key='t-faqs'> Documentation </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+";
+                } else if ($_SESSION['role'] == '3') {
+                    echo "
+                <li class='nav-item'>
+                    <a class='nav-link menu-link' href='#sidebarPages2' data-bs-toggle='collapse' role='button'
+                        aria-expanded='false' aria-controls='sidebarPages'>
+                        <i class='ri-pages-line'></i> <span data-key='t-pages'>Patient</span>
+                    </a>
+                    <div class='collapse menu-dropdown' id='sidebarPages2'>
+                        <ul class='nav nav-sm flex-column'>
+                            <li class='nav-item'>
+                                <a href='add-patient.php' class='nav-link' data-key='t-starter'> Add Patient </a>
+                            </li>
+                            <li class='nav-item'>
+                                <a href='view-patient.php' class='nav-link' data-key='t-team'> View Patient</a>
+                            </li>
+                            <li class='nav-item'>
+                                <a href='manage-patients.php' class='nav-link' data-key='t-team'> Manage Patient</a>
+                            </li>
+
+                            <li class='nav-item'>
+                                <a href='hospital-docs.php' class='nav-link' data-key='t-faqs'> Documentation </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>";
+                }
+
+                ?>
+
+
+
 
 
 
@@ -91,60 +194,7 @@
             </ul>
         </div>
         <!-- Sidebar -->
-    </div>';
-    } else if ($_SESSION['empDesignation'] == 'Receptionist') {
-        echo '<div id="scrollbar">
-        <div class="container-fluid">
-
-            <div id="two-column-menu">
-            </div>
-            <ul class="navbar-nav" id="navbar-nav">
-                <li class="menu-title"><span data-key="t-menu">Menu</span></li>
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarPages1" data-bs-toggle="collapse" role="button"
-                        aria-expanded="false" aria-controls="sidebarPages">
-                        <i class="ri-pages-line"></i> <span data-key="t-pages">Staffs</span>
-                    </a>
-                    <div class="collapse menu-dropdown" id="sidebarPages1">
-                        <ul class="nav nav-sm flex-column">
-                           
-                            <li class="nav-item">
-                                <a href="view-doctor.php" class="nav-link" data-key="t-team"> View Doctor </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarPages2" data-bs-toggle="collapse" role="button"
-                        aria-expanded="false" aria-controls="sidebarPages">
-                        <i class="ri-pages-line"></i> <span data-key="t-pages">Patient</span>
-                    </a>
-                    <div class="collapse menu-dropdown" id="sidebarPages2">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="add-patient.php" class="nav-link" data-key="t-starter"> Add Patient </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="view-patient.php" class="nav-link" data-key="t-team"> View Patient</a>
-                            </li>
-                            
-                        </ul>
-                    </div>
-                </li>
-                
-
-
-
-            </ul>
-        </div>
-        <!-- Sidebar -->
-    </div>';
-    }
-
-    ?>
-
+    </div>
 
     <div class="sidebar-background"></div>
 </div>

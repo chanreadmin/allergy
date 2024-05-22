@@ -1,20 +1,20 @@
 <?php
 session_start();
-include('layout/config.php');
+include ('layout/config.php');
 error_reporting(0);
 if (strlen($_SESSION['login']) == 0) {
     header('location:index.php');
 } else {
 
-    if ($_GET['action'] = 'del') {
-        $postid = intval($_GET['pid']);
-        $query = mysqli_query($conn, "delete from  tbl_center  where id='$postid'");
-        if ($query) {
-            $msg = "Hospital deleted ";
-        } else {
-            $error = "Something went wrong . Please try again.";
-        }
-    }
+    /* if ($_GET['action'] = 'del') {
+         $postid = intval($_GET['pid']);
+         $query = mysqli_query($conn, "delete from  tbl_center  where id='$postid'");
+         if ($query) {
+             $msg = "Hospital deleted ";
+         } else {
+             $error = "Something went wrong . Please try again.";
+         }
+     }*/
     ?>
 
 <!doctype html>
@@ -53,9 +53,9 @@ if (strlen($_SESSION['login']) == 0) {
     <!-- Begin page -->
     <div id="layout-wrapper">
 
-        <?php include('admin/header.php') ?>
+        <?php include ('admin/header.php') ?>
         <!-- ========== App Menu ========== -->
-        <?php include('admin/leftsidebar.php') ?>
+        <?php include ('admin/leftsidebar.php') ?>
         <!-- Left Sidebar End -->
         <!-- Vertical Overlay-->
         <div class="vertical-overlay"></div>
@@ -69,25 +69,23 @@ if (strlen($_SESSION['login']) == 0) {
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">Hospital</h4>
+                                <h4 class="mb-sm-0">Users</h4>
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
-                                        <li class="breadcrumb-item active">Hospital</li>
+                                        <li class="breadcrumb-item active">Users</li>
                                     </ol>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- end page title -->
-                    <!-- <div class="alert alert-danger" role="alert">
-                        This is <strong>Datatable</strong> page in wihch we have used <b>jQuery</b> with cnd link!
-                    </div> -->
+
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="card-title mb-0">Hospital List</h5>
+                                    <h5 class="card-title mb-0">User List</h5>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -95,22 +93,25 @@ if (strlen($_SESSION['login']) == 0) {
                                             style="width:100%">
                                             <thead>
                                                 <tr>
-                                                    <th>Center Name</th>
+                                                    <th>Name</th>
                                                     <th>Center Code</th>
-                                                    <th>Center Email</th>
-                                                    <th>Center Contact</th>
+                                                    <th>Email</th>
+                                                    <th>Contact</th>
+                                                    <th>Designation</th>
                                                     <th>Registered date</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                    $myquery = mysqli_query($conn, 'Select * from tbl_center');
+                                                    $centerCode = $_SESSION['centerCode'];
+
+                                                    $myquery = mysqli_query($conn, "SELECT * FROM tbl_users WHERE centerCode = '$centerCode' AND (usertype = 2 OR usertype = 3);");
                                                     while ($row = mysqli_fetch_array($myquery)) {
                                                         ?>
                                                 <tr>
                                                     <td>
-                                                        <?php echo htmlentities($row['centerName']) ?>
+                                                        <?php echo htmlentities($row['empName']); ?>
                                                     </td>
                                                     <td>
                                                         <?php echo htmlentities($row['centerCode']) ?>
@@ -122,16 +123,19 @@ if (strlen($_SESSION['login']) == 0) {
                                                         <?php echo htmlentities($row['center_contact']) ?>
                                                     </td>
                                                     <td>
+                                                        <?php echo htmlentities($row['empDesignation']) ?>
+                                                    </td>
+                                                    <td>
                                                         <?php echo htmlentities($row['createdAt']) ?>
                                                     </td>
                                                     <td>
-                                                        <a href="edit-center.php?hid=<?php echo htmlentities($row['centerCode']) ?>"
+                                                        <a href="edit-center.php?hid=<?php echo htmlentities($row['id']) ?>"
                                                             class="btn btn-primary">Edit</a>
                                                         | <a class="btn btn-danger"
                                                             href="view-hospital.php?pid=<?php echo htmlentities($row['id']); ?>&&action=del"
                                                             onclick="return confirm('Do you reaaly want to delete ?')">
                                                             Delete</a>
-                                                        <!-- <a href="" class="btn btn-warning">Hold</a> -->
+
                                                     </td>
                                                 </tr>
                                                 <?php } ?>
@@ -152,7 +156,7 @@ if (strlen($_SESSION['login']) == 0) {
             </div>
             <!-- End Page-content -->
 
-            <?php include('admin/footer.php'); ?>
+            <?php include ('admin/footer.php'); ?>
         </div>
         <!-- end main content-->
 

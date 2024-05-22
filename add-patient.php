@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('layout/config.php');
+include ('layout/config.php');
 error_reporting(0);
 if (strlen($_SESSION['login']) == 0) {
     header('location:index.php');
@@ -50,7 +50,7 @@ if (strlen($_SESSION['login']) == 0) {
 <body>
     <!-- Begin page -->
     <div id="layout-wrapper">
-        <?php include('admin/header.php') ?>
+        <?php include ('admin/header.php') ?>
         <!-- removeNotificationModal -->
         <div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -79,7 +79,7 @@ if (strlen($_SESSION['login']) == 0) {
         </div><!-- /.modal -->
         <!-- ========== App Menu ========== -->
         <?php
-            include('admin/leftsidebar.php')
+            include ('admin/leftsidebar.php')
                 ?>
         <!-- Left Sidebar End -->
         <!-- Vertical Overlay-->
@@ -155,11 +155,11 @@ if (strlen($_SESSION['login']) == 0) {
                                                         <option value="">Select Doctor</option>
                                                         <?php
                                                             $centerCode = $_SESSION['centerCode'];
-                                                            $querys = mysqli_query($conn, "SELECT * from tbl_staff WHERE centerCode= '$centerCode' AND empDesignation = 'Doctor'");
+                                                            $querys = mysqli_query($conn, "SELECT * from tbl_users WHERE centerCode= '$centerCode' AND usertype = '2'");
                                                             while ($rows = mysqli_fetch_array($querys)) {
                                                                 ?>
                                                         <option
-                                                            value="<?php echo htmlentities($rows['empUsername']) ?>">
+                                                            value="<?php echo htmlentities($rows['center_username']) ?>">
                                                             <?php echo htmlentities($rows['empName']) ?>
                                                         </option>
                                                         <?php } ?>
@@ -217,7 +217,7 @@ if (strlen($_SESSION['login']) == 0) {
                     <!--end row-->
                 </div> <!-- container-fluid -->
             </div><!-- End Page-content -->
-            <?php include('admin/footer.php') ?>
+            <?php include ('admin/footer.php') ?>
         </div>
         <!-- end main content-->
 

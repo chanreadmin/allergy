@@ -2,7 +2,6 @@
 
 include('../layout/config.php');
 session_start();
-
 if (isset($_POST['submit'])) {
     $symptoms = $_POST['symptoms'];
     $types = $_POST['types'];
